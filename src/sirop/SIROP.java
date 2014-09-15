@@ -5,6 +5,7 @@
  */
 
 package sirop;
+import java.util.Scanner;
 
 /**
  *
@@ -18,21 +19,30 @@ public class SIROP {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        PlateauJeu plateau = new PlateauJeu(50, 50);
+        //init globals
+        Scanner s = new Scanner(System.in);
+        boolean keepPlaying = true;   
         
+        //init robots
         RobotNeuneu r_n = new RobotNeuneu();
         r_n.setNomRobot("Je suis CACA !");
         
+        //init obstacles
         BorneEnergie b_e = new BorneEnergie(1,1);
         
+        //init plateau jeu
+        PlateauJeu plateau = new PlateauJeu(50, 50);
         plateau.addRobot(r_n);
         plateau.addObstacle(b_e);
         
-        plateau.displayPlateau();
-        plateau.moveRobot(0, r_n);
-        plateau.displayPlateau();
+        while(keepPlaying)
+        {
+            plateau.displayPlateau();
+            plateau.moveRobot(0, r_n);
+            System.out.println("Keep playing (0/1) ?");
+            keepPlaying = s.nextInt()==1;
+        }
         
-        //jaime la saucisse
     }
     
 }
