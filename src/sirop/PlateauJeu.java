@@ -41,60 +41,13 @@ public class PlateauJeu {
     
     public void moveRobot(int direction, Robot r)
     {
-       int deltax = 0;
-       int deltay = 0;
-        
-        switch(direction){
-            case 0: 
-                deltax = 1;
-                deltay = 0;
-                break;
-            case 1: 
-                deltax = 1;
-                deltay = 1;
-                break;
-            case 2: 
-                deltax = 0;
-                deltay = 1;
-                break;
-            case 3: 
-                deltax = -1;
-                deltay = 1;
-                break;
-            case 4: 
-                deltax = -1;
-                deltay = 0;
-                break;
-            case 5: 
-                deltax = -1;
-                deltay = -1;
-                break;    
-            case 6: 
-                deltax = 0;
-                deltay = -1;
-                break;    
-            case 7: 
-                deltax = 1;
-                deltay = -1;
-                break;
-        }
+       
             
-        Point2D newPos = new Point2D(r.getPos());
-        newPos.translate(deltax, deltay);
-        
-        boolean isOnObstacle = false;
-        for (Obstacle o : obstacleList) 
-        {
-            if(o.getPos().isEqual(newPos))
-            {
-                isOnObstacle = true;
-                break;
-            }
-        }
+        Point2D newPos = new Point2D(r.getPos(),direction);
         
         boolean hasEnoughEnergy = r.getEnergy()>0;
         
-        if(!horsPlateau(newPos) && !isOnObstacle && hasEnoughEnergy)
+        if(!horsPlateau(newPos) && caseLibre(newPos) && hasEnoughEnergy)
             {
                 r.depenserEnergie(1);
                 r.setPos(newPos);
@@ -118,8 +71,47 @@ public class PlateauJeu {
     
     public boolean horsPlateau(Point2D p)
     {
-    return p.getX()<0 || p.getY() <0 && p.getX() >= largeur && p.getY() >= hauteur;
+        return p.getX()<0 || p.getY() <0 && p.getX() >= largeur && p.getY() >= hauteur;
     }
+    
+    public boolean caseLibre(Point2D p)
+    {
+        for (Obstacle o : obstacleList) 
+        {
+            if(o.getPos().isEqual(p))
+            {
+                return false;
+            }
+        }
+        
+        for (Robot r : robotList) 
+        {
+            if(r.getPos().isEqual(p))
+            {
+                return false;
+            }
+        } 
+        return true;   
+    }
+    
+    public ArrayList<Point2D> casesLibresAround(Point2D p)
+    {
+        ArrayList<Point2D> pointList = new ArrayList();
+        Point2D currentAdjPoint;
+        
+        for(int k=0; k<=7; k++)
+        {
+            currentAdjPoint = new Point2D(p, k);
+            if(!horsPlateau(currentAdjPoint) && caseLibre(currentAdjPoint))
+            {
+                pointList.add(currentAdjPoint);
+            }
+            
+        }
+        
+        return pointList;
+    }
+    
     
     public void displayPlateau()
     {

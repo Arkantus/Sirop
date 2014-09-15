@@ -19,6 +19,50 @@ public class Point2D {
         this.y = y;         
     }
     
+    public Point2D(Point2D p, int direction)
+    {
+       int deltax = 0;
+       int deltay = 0;
+         
+        switch(direction){
+            case 0: 
+                deltax = 1;
+                deltay = 0;
+                break;
+            case 1: 
+                deltax = 1;
+                deltay = 1;
+                break;
+            case 2: 
+                deltax = 0;
+                deltay = 1;
+                break;
+            case 3: 
+                deltax = -1;
+                deltay = 1;
+                break;
+            case 4: 
+                deltax = -1;
+                deltay = 0;
+                break;
+            case 5: 
+                deltax = -1;
+                deltay = -1;
+                break;    
+            case 6: 
+                deltax = 0;
+                deltay = -1;
+                break;    
+            case 7: 
+                deltax = 1;
+                deltay = -1;
+                break;
+        }
+        
+        this.x = p.x + deltax;
+        this.y = p.y + deltay;
+    }
+    
     public Point2D(Point2D p)
     {
         this.x = p.getX();
