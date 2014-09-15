@@ -99,7 +99,7 @@ public class Point2D {
     
     public boolean isEqual(Point2D p)
     {
-        return x == p.y && x == p.y;
+        return (x == p.getX()) && (x == p.getY());
     }
     
     public void translate(int dx, int dy)

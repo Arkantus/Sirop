@@ -71,11 +71,11 @@ public class PlateauJeu {
     
     public boolean horsPlateau(Point2D p)
     {
-        return p.getX()<0 || p.getY() <0 || p.getX() >= largeur || p.getY() >= hauteur;
+        return ( (p.getX() < 0) || (p.getY() < 0) || (p.getX() >= largeur) || (p.getY() >= hauteur) );
     }
     
     public boolean caseLibre(Point2D p)
-    {
+    {                
         for (Obstacle o : obstacleList) 
         {
             if(o.getPos().isEqual(p))
