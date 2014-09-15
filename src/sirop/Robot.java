@@ -100,32 +100,7 @@ private static int robotCount = 0;
         this.health = health;
     }
     
-    public void moveRobot(int direction)
-    {
-       int deltax = 0;
-       int deltay = 0;
-        
-        switch(direction){
-            case 0: 
-                break;
-            case 1: 
-                break;
-            case 2: 
-                break;
-            case 3: 
-                break;
-            case 4: 
-                break;
-            case 5: 
-                break;    
-            case 6: 
-                break;    
-            case 7: 
-                break;
-        }
-            
-        this.depenserEnergie(1);
-    }
+    
     
     @Override
     public String toString()
@@ -133,17 +108,35 @@ private static int robotCount = 0;
         return ("Nom : "+ this.nomRobot + " \n\tJe suis de type : " + this.getClass().toString().substring(12) + "\n\tEnergie : " + this.energy+ "\n\tSanté : " + this.health + "\n\tPosition : " + this.xPos + ","+this.yPos);
     }
 
-    public void recharger(int energyRefill)
+    public int recharger(int energyRefill)
     {
-        this.energy += energyRefill;
+        int excessEnergie = 0;
+        if(this.energy + energyRefill <= ROBOT_MAX_ENERGIE)
+            {
+                this.energy += energyRefill;
+            }
+        else{
+                excessEnergie = this.energy + energyRefill - ROBOT_MAX_ENERGIE;
+                this.energy = ROBOT_MAX_ENERGIE;
+            }
+        return excessEnergie;
     }
     
-    public void reparer(int healthRefill)
+    public int reparer(int healthRefill)
     {
-        this.health += healthRefill;
+        int excessSante = 0;
+        if(this.health + healthRefill <= ROBOT_MAX_SANTE)
+            {
+                this.health += healthRefill;
+            }
+        else{
+                excessSante = this.health + healthRefill - ROBOT_MAX_SANTE;
+                this.health = ROBOT_MAX_SANTE;
+            }
+        return excessSante;
     }
     
-    private void depenserEnergie(int energySpent)
+    public void depenserEnergie(int energySpent)
     {
         this.energy -= energySpent;
     }
