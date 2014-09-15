@@ -21,8 +21,8 @@ public class Point2D {
     
     public Point2D(Point2D p)
     {
-        this.x = p.x;
-        this.y = p.y;
+        this.x = p.getX();
+        this.y = p.getY();
     }
 
     /**
@@ -67,7 +67,7 @@ public class Point2D {
     @Override
     public String toString()
     {
-        return "X :"+this.x+"Y :"+this.y;
+        return "X : "+this.x+" - Y : "+this.y;
     }
     
 }

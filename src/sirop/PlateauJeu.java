@@ -79,7 +79,7 @@ public class PlateauJeu {
                 break;
         }
             
-        Point2D newPos = r.getPos();
+        Point2D newPos = new Point2D(r.getPos());
         newPos.translate(deltax, deltay);
         
         boolean isInPlateau = newPos.getX()>=0 && newPos.getY() >=0 && newPos.getX() < largeur && newPos.getY() < hauteur;

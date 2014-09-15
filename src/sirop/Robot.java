@@ -24,6 +24,7 @@ private static int robotCount = 0;
 
     public Robot()
     {
+        pos = new Point2D(0,0);
         robotCount++;
         this.energy = Robot.ROBOT_START_ENERGIE;
         this.health = Robot.ROBOT_START_SANTE;
