@@ -28,7 +28,7 @@ public class SIROP {
         plateau.addRobot(r_n);
         plateau.addObstacle(b_e);
         
-        
+        //jaime la saucisse
     }
     
 }
