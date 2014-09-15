@@ -33,8 +33,7 @@ public class BorneEnergie extends Bonus{
     
     public void rendreEnergie(int energieRendue, Robot r)
     {
-        r.recharger(energieRendue);
-        this.energieBorne -= energieRendue;
+            this.energieBorne -= energieRendue - r.recharger(energieRendue);
     }
     
 }
