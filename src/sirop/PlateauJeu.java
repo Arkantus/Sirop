@@ -82,7 +82,6 @@ public class PlateauJeu {
         Point2D newPos = new Point2D(r.getPos());
         newPos.translate(deltax, deltay);
         
-        boolean isInPlateau = newPos.getX()>=0 && newPos.getY() >=0 && newPos.getX() < largeur && newPos.getY() < hauteur;
         boolean isOnObstacle = false;
         for (Obstacle o : obstacleList) 
         {
@@ -95,7 +94,7 @@ public class PlateauJeu {
         
         boolean hasEnoughEnergy = r.getEnergy()>0;
         
-        if(isInPlateau && !isOnObstacle && hasEnoughEnergy)
+        if(!horsPlateau(newPos) && !isOnObstacle && hasEnoughEnergy)
             {
                 r.depenserEnergie(1);
                 r.setPos(newPos);
@@ -115,6 +114,11 @@ public class PlateauJeu {
             moveRobot(ranGenerator.nextInt(7), r);
         } 
         
+    }
+    
+    public boolean horsPlateau(Point2D p)
+    {
+    return p.getX()<0 || p.getY() <0 && p.getX() >= largeur && p.getY() >= hauteur;
     }
     
     public void displayPlateau()
