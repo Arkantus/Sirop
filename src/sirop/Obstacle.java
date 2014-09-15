@@ -33,4 +33,11 @@ public abstract class Obstacle {
     public int getyPos() {
         return yPos;
     }
+    
+    
+    @Override
+    public String toString()
+    {
+        return ("\tJe suis de type : " + this.getClass().toString().substring(12) + "\n\tPosition : " + this.xPos + "," + this.yPos);
+    }
 }
