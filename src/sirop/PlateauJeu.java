@@ -8,6 +8,7 @@
 
 package sirop;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -104,6 +105,16 @@ public class PlateauJeu {
             {
                 System.out.println("Move failure");
             }
+    }
+    
+    public void randomMoveRobots()
+    {
+        Random ranGenerator = new Random();
+       for (Robot r : robotList) 
+        {
+            moveRobot(ranGenerator.nextInt(7), r);
+        } 
+        
     }
     
     public void displayPlateau()
