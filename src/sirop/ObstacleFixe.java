@@ -12,9 +12,9 @@ package sirop;
  */
 public class ObstacleFixe extends Obstacle {
     
-    public ObstacleFixe(int _x, int _y)
+    public ObstacleFixe(int x, int y)
     {
-        super(_x,_y);
+        super(x,y);
     }
     
 }

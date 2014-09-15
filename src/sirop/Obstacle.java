@@ -11,33 +11,24 @@ package sirop;
  * @author marc
  */
 public abstract class Obstacle {
-    protected int xPos;
-    protected int yPos;
+    protected Point2D pos;
 
-    public Obstacle(int _x, int _y)
+    public Obstacle(int x, int y)
     {
-        this.xPos = _x;
-        this.yPos = _y;
+        pos = new Point2D(x,y);
     }
     
     /**
-     * @return the xPos
+     * @return the position
      */
-    public int getxPos() {
-        return xPos;
+    public Point2D getPos() {
+        return pos;
     }
 
-    /**
-     * @return the yPos
-     */
-    public int getyPos() {
-        return yPos;
-    }
-    
     
     @Override
     public String toString()
     {
-        return ("\tJe suis de type : " + this.getClass().toString().substring(12) + "\n\tPosition : " + this.xPos + "," + this.yPos);
+        return ("\tJe suis de type : " + this.getClass().toString().substring(12) + "\n\tPosition : " + this.pos.toString());
     }
 }

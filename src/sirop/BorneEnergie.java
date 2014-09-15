@@ -15,9 +15,9 @@ public class BorneEnergie extends Bonus{
     private static final int ENERGIEINITIALEBORNE = 100;
     private int energieBorne;
     
-    public BorneEnergie(int _x, int _y)
+    public BorneEnergie(int x, int y)
     {
-        super(_x,_y);
+        super(x,y);
         this.energieBorne = ENERGIEINITIALEBORNE;
     }
     

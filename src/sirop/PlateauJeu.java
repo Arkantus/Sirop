@@ -79,14 +79,14 @@ public class PlateauJeu {
                 break;
         }
             
-        int newxPos = r.getxPos() + deltax;
-        int newyPos = r.getyPos() + deltay;
+        Point2D newPos = r.getPos();
+        newPos.translate(deltax, deltay);
         
-        boolean isInPlateau = newxPos>=0 && newyPos >=0 && newxPos < largeur && newyPos < hauteur;
+        boolean isInPlateau = newPos.getX()>=0 && newPos.getY() >=0 && newPos.getX() < largeur && newPos.getY() < hauteur;
         boolean isOnObstacle = false;
         for (Obstacle o : obstacleList) 
         {
-            if(o.getxPos() == newxPos && o.getyPos() == newyPos)
+            if(o.getPos().isEqual(newPos))
             {
                 isOnObstacle = true;
                 break;
@@ -98,14 +98,14 @@ public class PlateauJeu {
         if(isInPlateau && !isOnObstacle && hasEnoughEnergy)
             {
                 r.depenserEnergie(1);
-                r.setxPos(newxPos);
-                r.setyPos(newyPos);
+                r.setPos(newPos);
             }  
         else
             {
                 System.out.println("Move failure");
             }
     }
+    
     
     public void randomMoveRobots()
     {

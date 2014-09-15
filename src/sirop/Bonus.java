@@ -12,9 +12,9 @@ package sirop;
  */
 public abstract class Bonus extends Obstacle {
 
-    public Bonus(int _x, int _y)
+    public Bonus(int x, int y)
     {
-        super(_x,_y);
+        super(x,y);
     }
     //protected int xPos;
     //protected int yPos;

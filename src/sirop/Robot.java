@@ -12,8 +12,7 @@ package sirop;
  */
 public class Robot {
 private String nomRobot;
-private int xPos;
-private int yPos;
+private Point2D pos;
 private int energy;
 private int health; 
 private static final int ROBOT_MAX_ENERGIE = 150;
@@ -30,6 +29,14 @@ private static int robotCount = 0;
         this.health = Robot.ROBOT_START_SANTE;
     }
 
+    public Robot(int x, int y)
+    {
+        pos = new Point2D(x, y);
+        robotCount++;
+        this.energy = Robot.ROBOT_START_ENERGIE;
+        this.health = Robot.ROBOT_START_SANTE;
+    }
+    
     /**
      * @return the nomRobot
      */
@@ -45,33 +52,19 @@ private static int robotCount = 0;
     }
 
     /**
-     * @return the xPos
+     * @return the position
      */
-    public int getxPos() {
-        return xPos;
+    public Point2D getPos() {
+        return pos;
     }
 
     /**
-     * @param xPos the xPos to set
+     * @param p the Point2D position to set
      */
-    public void setxPos(int xPos) {
-        this.xPos = xPos;
+    public void setPos(Point2D p) {
+        this.pos = new Point2D(p);
     }
-
-    /**
-     * @return the yPos
-     */
-    public int getyPos() {
-        return yPos;
-    }
-
-    /**
-     * @param yPos the yPos to set
-     */
-    public void setyPos(int yPos) {
-        this.yPos = yPos;
-    }
-
+   
     /**
      * @return the energy
      */
@@ -105,7 +98,7 @@ private static int robotCount = 0;
     @Override
     public String toString()
     {
-        return ("Nom : "+ this.nomRobot + " \n\tJe suis de type : " + this.getClass().toString().substring(12) + "\n\tEnergie : " + this.energy+ "\n\tSanté : " + this.health + "\n\tPosition : " + this.xPos + ","+this.yPos);
+        return ("Nom : "+ this.nomRobot + " \n\tJe suis de type : " + this.getClass().toString().substring(12) + "\n\tEnergie : " + this.energy+ "\n\tSanté : " + this.health + "\n\tPosition : " + this.pos.toString());
     }
 
     public int recharger(int energyRefill)

@@ -15,9 +15,9 @@ public class BorneSante extends Bonus {
     private static final int SANTEINITIALEBORNE = 100;
     private int santeBorne;
 
-    public BorneSante(int _x, int _y)
+    public BorneSante(int x, int y)
     {
-        super(_x,_y);
+        super(x,y);
         this.santeBorne = SANTEINITIALEBORNE;
     }
     

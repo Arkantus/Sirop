@@ -12,19 +12,14 @@ package sirop;
  */
 public class ObstacleMobile extends Obstacle {
     
-    public ObstacleMobile(int _x, int _y)
+    public ObstacleMobile(int x, int y)
     {
-        super(_x,_y);
+        super(x,y);
     }
     
-    public void setxPos(int _x)
+    public void setPos(Point2D p)
     {
-        this.xPos = _x;
-    }
-    
-    public void setyPos(int _y)
-    {
-        this.yPos = _y;
+        this.pos = new Point2D(p);
     }
     
     public void move()
