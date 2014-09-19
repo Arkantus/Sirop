@@ -10,21 +10,23 @@ package sirop;
  *
  * @author marc
  */
-public class ObstacleMobile extends Obstacle {
+public class ObstacleMobile extends Obstacle implements Movable{
     
     public ObstacleMobile(int x, int y)
     {
         super(x,y);
     }
     
+    @Override
     public void setPos(Point2D p)
     {
         this.pos = new Point2D(p);
     }
-    
-    public void move()
+
+    @Override
+    public Point2D getPos()
     {
-        //TODO de case en case.
+        return pos;
     }
     
 }

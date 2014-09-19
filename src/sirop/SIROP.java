@@ -38,7 +38,7 @@ public class SIROP {
         while(keepPlaying)
         {
             plateau.randomMoveRobots();
-            plateau.displayPlateau();
+            plateau.displayToString();
             System.out.println("Keep playing (0/1) ?");
             keepPlaying = s.nextInt()==1;
         }

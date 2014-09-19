@@ -10,7 +10,7 @@ package sirop;
  *
  * @author marc
  */
-public class Robot {
+public class Robot implements Movable {
 private String nomRobot;
 private Point2D pos;
 private int energy;
@@ -55,6 +55,7 @@ private static int robotCount = 0;
     /**
      * @return the position
      */
+    @Override
     public Point2D getPos() {
         return pos;
     }
@@ -62,6 +63,7 @@ private static int robotCount = 0;
     /**
      * @param p the Point2D position to set
      */
+    @Override
     public void setPos(Point2D p) {
         this.pos = new Point2D(p);
     }
@@ -134,7 +136,6 @@ private static int robotCount = 0;
     {
         this.energy -= energySpent;
     }
-    
     
 
 

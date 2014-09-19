@@ -57,7 +57,22 @@ public class PlateauJeu {
                 System.out.println("Move failure");
             }
     }
-    
+   
+        public void moveMovable(int direction, Movable m)
+    {
+       
+        Point2D newPos = new Point2D(m.getPos(),direction);
+        
+        
+        if(!horsPlateau(newPos) && caseLibre(newPos))
+            {
+                m.setPos(newPos);
+            }  
+        else
+            {
+                System.out.println("Move failure");
+            }
+    }
     
     public void randomMoveRobots()
     {
@@ -124,4 +139,28 @@ public class PlateauJeu {
             System.out.println(r.toString());
         }
     }
+    
+    public void displayToString()
+    {
+        char[][] plat = new char[this.hauteur][this.largeur];
+        for(int i = 0 ; i < this.hauteur ; i ++) for(int  j = 0 ; j < this.largeur ; j ++) plat[i][j] = ' ';
+        for (Obstacle o : obstacleList) 
+        {
+            plat[o.getPos().getX()][o.getPos().getY()] = 'o';
+        }
+        for (Robot r : robotList) 
+        {
+            plat[r.getPos().getX()][r.getPos().getY()] = 'r';
+        }
+        String value;
+        for(int i = 0 ; i < this.hauteur ; i ++)
+        {
+            for(int  j = 0 ; j < this.largeur ; j ++)
+            {
+                System.out.print(plat[i][j]);
+            }
+            System.out.println();
+        }
+    }
+    
 }
