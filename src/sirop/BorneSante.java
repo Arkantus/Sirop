@@ -33,7 +33,7 @@ public class BorneSante extends Bonus {
     
     public void rendreEnergie(int santeRendue, Robot r)
     {
-        this.santeBorne -= santeRendue - r.reparer(santeRendue);;
+        this.santeBorne -= santeRendue - r.reparer(santeRendue);
     }
     
 }
