@@ -65,7 +65,17 @@ private static int robotCount = 0;
      */
     @Override
     public void setPos(Point2D p) {
-        this.pos = new Point2D(p);
+        boolean hasEnoughEnergy = this.energy>0;
+        
+        if(hasEnoughEnergy)
+            {
+                depenserEnergie(1);
+                this.pos = new Point2D(p);
+            }  
+        else
+            {
+                System.out.println("Move failure : ooe");
+            }
     }
    
     /**

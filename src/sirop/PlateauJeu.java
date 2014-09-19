@@ -8,6 +8,7 @@
 
 package sirop;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 /**
@@ -39,24 +40,7 @@ public class PlateauJeu {
         this.obstacleList.add(o);
     }
     
-    public void moveRobot(int direction, Robot r)
-    {
-       
-            
-        Point2D newPos = new Point2D(r.getPos(),direction);
-        
-        boolean hasEnoughEnergy = r.getEnergy()>0;
-        
-        if(!horsPlateau(newPos) && caseLibre(newPos) && hasEnoughEnergy)
-            {
-                r.depenserEnergie(1);
-                r.setPos(newPos);
-            }  
-        else
-            {
-                System.out.println("Move failure");
-            }
-    }
+
    
         public void moveMovable(int direction, Movable m)
     {
@@ -70,7 +54,7 @@ public class PlateauJeu {
             }  
         else
             {
-                System.out.println("Move failure");
+                System.out.println("Move failure : collision");
             }
     }
     
@@ -79,7 +63,11 @@ public class PlateauJeu {
         Random ranGenerator = new Random();
        for (Robot r : robotList) 
         {
-            moveRobot(ranGenerator.nextInt(7), r);
+            HashMap caseslibresautourdurobotr = casesLibresAround(r.getPos());
+            int rand;
+            do {rand = ranGenerator.nextInt(7);}
+            while(!caseslibresautourdurobotr.containsValue(rand));
+            moveMovable(rand, r);
         } 
         
     }
@@ -109,9 +97,9 @@ public class PlateauJeu {
         return true;   
     }
     
-    public ArrayList<Point2D> casesLibresAround(Point2D p)
+    public HashMap casesLibresAround(Point2D p)
     {
-        ArrayList<Point2D> pointList = new ArrayList();
+        HashMap<Point2D,Integer> pointMap = new HashMap<>();
         Point2D currentAdjPoint;
         
         for(int k=0; k<=7; k++)
@@ -119,14 +107,39 @@ public class PlateauJeu {
             currentAdjPoint = new Point2D(p, k);
             if(!horsPlateau(currentAdjPoint) && caseLibre(currentAdjPoint))
             {
-                pointList.add(currentAdjPoint);
+                pointMap.put(currentAdjPoint, k);
             }
             
+        }
+        
+        return pointMap;
+    }
+    
+    public ArrayList areBonusesAutour(Point2D p)
+    {
+        ArrayList<Obstacle> pointList = new ArrayList<>();
+        Point2D currentAdjPoint;
+        
+        for (Obstacle o : obstacleList) 
+        {
+            if(o.getPos().isEqual(p))
+            {
+                pointList.add(o);
+            }
         }
         
         return pointList;
     }
     
+    public void applyBonuses()
+    {
+       for (Robot r : robotList) 
+        {
+            System.out.println(r.toString());
+        } 
+        
+        
+    }
     
     public void displayPlateau()
     {
