@@ -16,6 +16,7 @@ public abstract class Bonus extends Obstacle {
     {
         super(x,y);
     }
+    public abstract void applyBonus(Robot r);
     //protected int xPos;
     //protected int yPos;
     

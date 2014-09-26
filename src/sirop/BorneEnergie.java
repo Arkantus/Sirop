@@ -36,4 +36,10 @@ public class BorneEnergie extends Bonus {
             this.energieBorne -= energieRendue - r.recharger(energieRendue);
     }
     
+    @Override
+    public void applyBonus(Robot r)
+    {
+        this.rendreEnergie(1,r);
+    }
+    
 }
