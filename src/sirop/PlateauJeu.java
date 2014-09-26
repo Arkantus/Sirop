@@ -122,7 +122,7 @@ public class PlateauJeu {
         
         for (Obstacle o : obstacleList) 
         {
-            if(o.getPos().isEqual(p))
+            if(o.getPos().isEqual(p) && o.getClass().getSuperclass() == sirop.Bonus.class)
             {
                 pointList.add((Bonus)o);
             }
