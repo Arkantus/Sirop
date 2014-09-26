@@ -10,7 +10,7 @@ package sirop;
  *
  * @author marc
  */
-public class BorneEnergie extends Bonus{
+public class BorneEnergie extends Bonus {
     
     private static final int ENERGIEINITIALEBORNE = 100;
     private int energieBorne;

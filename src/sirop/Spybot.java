@@ -22,9 +22,5 @@ public class Spybot extends Obstacle implements Movable{
         this.pos = new Point2D(p);
     }
 
-    @Override
-    public Point2D getPos()
-    {
-        return pos;
-    }
+
 }

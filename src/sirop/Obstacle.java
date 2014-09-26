@@ -10,7 +10,7 @@ package sirop;
  *
  * @author marc
  */
-public abstract class Obstacle {
+public abstract class Obstacle implements ObjectLocalised{
     protected Point2D pos;
 
     public Obstacle(int x, int y)
@@ -21,6 +21,7 @@ public abstract class Obstacle {
     /**
      * @return the position
      */
+    @Override
     public Point2D getPos() {
         return pos;
     }

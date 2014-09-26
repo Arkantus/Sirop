@@ -9,9 +9,8 @@ package sirop;
  *
  * @author marc
  */
-public interface Movable {
+public interface Movable extends ObjectLocalised{
     
     public void setPos(Point2D p);
-    public Point2D getPos();
-    
+   
 }
