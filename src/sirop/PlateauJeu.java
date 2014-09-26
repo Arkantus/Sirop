@@ -117,14 +117,14 @@ public class PlateauJeu {
     
     public ArrayList areBonusesAutour(Point2D p)
     {
-        ArrayList<Obstacle> pointList = new ArrayList<>();
+        ArrayList<Bonus> pointList = new ArrayList<>();
         Point2D currentAdjPoint;
         
         for (Obstacle o : obstacleList) 
         {
             if(o.getPos().isEqual(p))
             {
-                pointList.add(o);
+                pointList.add((Bonus)o);
             }
         }
         
@@ -135,10 +135,15 @@ public class PlateauJeu {
     {
        for (Robot r : robotList) 
         {
-            System.out.println(r.toString());
+            ArrayList<Bonus> o = areBonusesAutour(r.getPos());
+            if(o.size()>0)
+            {
+                for(Bonus b : o)
+                {
+                    b.applyBonus(r);
+                }
+            }
         } 
-        
-        
     }
     
     public void displayPlateau()
