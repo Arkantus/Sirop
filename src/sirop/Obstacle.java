@@ -10,6 +10,9 @@ package sirop;
  *
  * @author marc
  */
+
+//TODO add apply effect for obstakles
+
 public abstract class Obstacle implements ObjectLocalised{
     protected Point2D pos;
 
