@@ -12,5 +12,13 @@ package sirop;
  */
 public class RobotEnergivore  extends Robot {
 
+public RobotEnergivore(int x, int y)
+    {
+        super(x,y);
+    }
 
+public RobotEnergivore()
+    {
+        super();
+    }
 }

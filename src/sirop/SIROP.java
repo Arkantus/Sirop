@@ -26,6 +26,8 @@ public class SIROP {
         //init robots
         RobotNeuneu r_n = new RobotNeuneu();
         r_n.setNomRobot("Je suis CACA !");
+        RobotCombattant r_c = new RobotCombattant(10,10);
+        r_c.setNomRobot("con battant");
         
         //init obstacles
         BorneEnergie b_e = new BorneEnergie(1,1);
@@ -33,6 +35,7 @@ public class SIROP {
         //init plateau jeu
         PlateauJeu plateau = new PlateauJeu(50, 50);
         plateau.addRobot(r_n);
+        plateau.addRobot(r_c);
         plateau.addObstacle(b_e);
         
         while(keepPlaying)
@@ -40,6 +43,7 @@ public class SIROP {
             plateau.displayToString();
             plateau.randomMoveRobots();
             plateau.applyBonuses();
+            plateau.displayToString();
             System.out.println("Keep playing (0/1) ?");
             keepPlaying = s.nextInt()==1;
         }

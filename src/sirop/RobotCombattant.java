@@ -12,6 +12,13 @@ package sirop;
  */
 public class RobotCombattant  extends Robot {
 
-    
+public RobotCombattant(int x, int y)
+    {
+        super(x,y);
+    }    
 
+public RobotCombattant()
+    {
+        super();
+    }
 }

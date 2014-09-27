@@ -12,10 +12,13 @@ package sirop;
  */
 public class RobotNeuneu extends Robot {
 
-    
-    //@Override
-    //public String toString()
-    //{
-    //    return "Je suis de type : " + this.getClass().toString().substring(12) +" \n"+ super.toString();
-    //}
+public RobotNeuneu(int x, int y)
+    {
+        super(x,y);
+    }
+public RobotNeuneu()
+    {
+        super();
+    }
+
 }
