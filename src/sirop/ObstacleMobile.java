@@ -23,10 +23,9 @@ public class ObstacleMobile extends Obstacle implements Movable{
         this.pos = new Point2D(p);
     }
 
-    @Override
-    public Point2D getPos()
+   @Override
+    public void applyEffect(Robot r)
     {
-        return pos;
-    }
-    
+     
+    } 
 }

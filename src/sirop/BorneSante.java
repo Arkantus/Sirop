@@ -21,7 +21,7 @@ public class BorneSante extends Bonus {
         this.santeBorne = SANTEINITIALEBORNE;
     }
     
-    public int getEnergie()
+    public int getSante()
     {
         return this.santeBorne;
     }
@@ -32,12 +32,12 @@ public class BorneSante extends Bonus {
     }
     
     @Override
-    public void applyBonus(Robot r)
+    public void applyEffect(Robot r)
     {
-        this.rendreEnergie(1, r);
+        this.rendreSante(1,r);
     }
     
-    public void rendreEnergie(int santeRendue, Robot r)
+    public void rendreSante(int santeRendue, Robot r)
     {
         this.santeBorne -= santeRendue - r.reparer(santeRendue);
     }

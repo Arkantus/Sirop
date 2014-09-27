@@ -21,6 +21,13 @@ public class Spybot extends Obstacle implements Movable{
     {
         this.pos = new Point2D(p);
     }
+    
+    @Override
+    public void applyEffect(Robot r)
+    {
+       r.reparer(-1);
+    }
 
+    
 
 }

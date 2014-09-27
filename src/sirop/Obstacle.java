@@ -29,6 +29,7 @@ public abstract class Obstacle implements ObjectLocalised{
         return pos;
     }
 
+    public abstract void applyEffect(Robot r);
     
     @Override
     public String toString()

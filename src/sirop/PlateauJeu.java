@@ -115,32 +115,37 @@ public class PlateauJeu {
         return pointMap;
     }
     
-    public ArrayList areBonusesAutour(Point2D p)
+    public ArrayList obstaclesAutour(Point2D p)
     {
-        ArrayList<Bonus> pointList = new ArrayList<>();
+        ArrayList<Obstacle> oList = new ArrayList<>();
         Point2D currentAdjPoint;
+        
+        for(int k=0; k<=7; k++)
+        {
+        currentAdjPoint = new Point2D(p, k);
         
         for (Obstacle o : obstacleList) 
         {
-            if(o.getPos().isEqual(p) && o.getClass().getSuperclass() == sirop.Bonus.class)
+            if(o.getPos().isEqual(currentAdjPoint))
             {
-                pointList.add((Bonus)o);
+                oList.add(o);
             }
         }
         
-        return pointList;
+        }
+        return oList;
     }
     
     public void applyBonuses()
     {
        for (Robot r : robotList) 
         {
-            ArrayList<Bonus> o = areBonusesAutour(r.getPos());
-            if(o.size()>0)
+            ArrayList<Obstacle> oList = obstaclesAutour(r.getPos());
+            if(oList.size()>0)
             {
-                for(Bonus b : o)
+                for(Obstacle o : oList)
                 {
-                    b.applyBonus(r);
+                    o.applyEffect(r);
                 }
             }
         } 

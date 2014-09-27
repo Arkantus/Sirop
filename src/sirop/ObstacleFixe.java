@@ -16,5 +16,14 @@ public class ObstacleFixe extends Obstacle {
     {
         super(x,y);
     }
+
+    
+    @Override
+     public void applyEffect(Robot r)
+    {
+     
+    } 
     
 }
+
+

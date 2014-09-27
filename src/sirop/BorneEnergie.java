@@ -37,7 +37,7 @@ public class BorneEnergie extends Bonus {
     }
     
     @Override
-    public void applyBonus(Robot r)
+    public void applyEffect(Robot r)
     {
         this.rendreEnergie(1,r);
     }
