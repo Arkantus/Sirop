@@ -153,27 +153,27 @@ public class PlateauJeu {
         } 
     }
     
-    public void displayPlateau(JLabel[] labels, ImageIcon[] icons)
+    public void displayPlateau(JLabel[] labels, HashMap<Class,ImageIcon> iconMap)
     {
         int x;
         int y;
         
         for (int i =  0; i < 625; i++)
         {
-            labels[i] = new JLabel(icons[8]);
+            labels[i] = new JLabel(iconMap.get(Object.class));
         }
         
         for (Obstacle o : obstacleList) 
         {
             x = o.getPos().getX();
             y = o.getPos().getY();
-            labels[25*y+(x)] = new JLabel(icons[5]);
+            labels[25*y+(x)] = new JLabel(iconMap.get(o.getClass()));
         }
         for (Robot r : robotList) 
         {
             x = r.getPos().getX();
             y = r.getPos().getY();
-            labels[25*y+(x)] = new JLabel(icons[0]);
+            labels[25*y+(x)] = new JLabel(iconMap.get(r.getClass()));
         }
     }
     

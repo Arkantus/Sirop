@@ -8,6 +8,7 @@ package sirop;
 import java.util.Scanner;
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.util.HashMap;
 
 import javax.swing.*;
 
@@ -29,23 +30,20 @@ public class SIROP {
         boardWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        
         Container pane = new JPanel(new GridLayout(25,25,0,0));
-        ImageIcon icons[] = new ImageIcon[9];
-        icons[0] = new ImageIcon("res/robotneuneu.png");
-        icons[1] = new ImageIcon("res/robotcombattant.png");
-        icons[2] = new ImageIcon("res/robotenergivore.png");
-        icons[3] = new ImageIcon("res/borneenergie.png");
-        icons[4] = new ImageIcon("res/bornesante.png");
-        icons[5] = new ImageIcon("res/obstaclefixe.png");
-        icons[6] = new ImageIcon("res/obstaclemobile.png");
-        icons[7] = new ImageIcon("res/spybot.png");
-        icons[8] = new ImageIcon("res/bg.png");
+        
+        HashMap<Class,ImageIcon> iconMap = new HashMap<>();
+        iconMap.put(RobotNeuneu.class, new ImageIcon("res/robotneuneu.png"));
+        iconMap.put(RobotCombattant.class, new ImageIcon("res/robotcombattant.png"));
+        iconMap.put(RobotEnergivore.class, new ImageIcon("res/robotenergivore.png"));
+        iconMap.put(BorneEnergie.class, new ImageIcon("res/borneenergie.png"));
+        iconMap.put(BorneSante.class, new ImageIcon("res/bornesante.png"));
+        iconMap.put(ObstacleFixe.class, new ImageIcon("res/obstaclefixe.png"));
+        iconMap.put(ObstacleMobile.class, new ImageIcon("res/obstaclemobile.png"));
+        iconMap.put(Spybot.class, new ImageIcon("res/spybot.png"));
+        iconMap.put(Object.class, new ImageIcon("res/bg.png"));
         JLabel labels[] = new JLabel[625];
 
-        for (int i =  0; i < 625; i++)
-        {
-            labels[i] = new JLabel( icons[8] );
-            pane.add(labels[i]);
-        }
+
         boardWindow.add(pane);
         boardWindow.pack();
         boardWindow.setBounds(10, 10, 800, 800);
@@ -77,7 +75,7 @@ public class SIROP {
             plateau.randomMoveRobots();
             plateau.applyBonuses();
             pane.removeAll();
-            plateau.displayPlateau(labels, icons);
+            plateau.displayPlateau(labels, iconMap);
             for (int i =  0; i < 625; i++)
             {
                 pane.add(labels[i]);
