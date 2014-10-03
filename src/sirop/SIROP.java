@@ -6,9 +6,6 @@
 
 package sirop;
 import java.util.Scanner;
-import java.awt.Container;
-import java.awt.GridLayout;
-import java.util.HashMap;
 
 import javax.swing.*;
 
@@ -24,20 +21,6 @@ public class SIROP {
      * @throws java.lang.InterruptedException
      */
     public static void main(String[] args) throws InterruptedException {
-        
-        // GUI
-        JFrame boardWindow = new JFrame();
-        boardWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       
-        Container pane = new JPanel(new GridLayout(25,25,0,0));
-        
-        JLabel labels[] = new JLabel[625];
-
-
-        boardWindow.add(pane);
-        boardWindow.pack();
-        boardWindow.setBounds(10, 10, 800, 800);
-        
         
         //init globals
         Scanner s = new Scanner(System.in);
@@ -58,20 +41,25 @@ public class SIROP {
         plateau.addRobot(r_c);
         plateau.addObstacle(b_e);
         
+        // GUI
+        rFrame rF = new rFrame(plateau.getHauteur(), plateau.getLargeur());        
+        JPanel rPane = rF.getPane();
+        JLabel[] labels = rF.getLabels();
+        
         while(keepPlaying)
         {
             //plateau.displayToString();
             Thread.sleep(300);
             plateau.randomMoveRobots();
             plateau.applyBonuses();
-            pane.removeAll();
+            rPane.removeAll();
             plateau.displayPlateau(labels);
             for (int i =  0; i < 625; i++)
             {
-                pane.add(labels[i]);
+                rPane.add(labels[i]);
             }
-            boardWindow.repaint();
-            boardWindow.setVisible(true);
+            rF.repaint();
+            rF.setVisible(true);
             //System.out.println("Keep playing (0/1) ?");
             //keepPlaying = s.nextInt()==1;
         }

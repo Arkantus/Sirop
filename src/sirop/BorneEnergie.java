@@ -46,6 +46,6 @@ public class BorneEnergie extends Bonus {
     
     @Override
     public ImageIcon getImage() {
-        return new ImageIcon("res/bornenergie.png");
+        return new ImageIcon("res/borneenergie.png");
     }
 }

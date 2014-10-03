@@ -76,7 +76,7 @@ public class PlateauJeu {
     
     public boolean horsPlateau(Point2D p)
     {
-        return ( (p.getX() < 0) || (p.getY() < 0) || (p.getX() >= largeur) || (p.getY() >= hauteur) );
+        return ( (p.getX() < 0) || (p.getY() < 0) || (p.getX() >= getLargeur()) || (p.getY() >= getHauteur()) );
     }
     
     public boolean caseLibre(Point2D p)
@@ -158,6 +158,12 @@ public class PlateauJeu {
         int x;
         int y;
         
+        for (int i=0;i<625; i++) 
+        {
+            labels[i] = new JLabel(new ImageIcon("res/bg.png"));
+        }
+        
+        
         for (Obstacle o : obstacleList) 
         {
             x = o.getPos().getX();
@@ -174,8 +180,8 @@ public class PlateauJeu {
     
     public void displayToString()
     {
-        char[][] plat = new char[this.hauteur][this.largeur];
-        for(int i = 0 ; i < this.hauteur ; i ++) for(int  j = 0 ; j < this.largeur ; j ++) plat[i][j] = ' ';
+        char[][] plat = new char[this.getHauteur()][this.getLargeur()];
+        for(int i = 0 ; i < this.getHauteur() ; i ++) for(int  j = 0 ; j < this.getLargeur() ; j ++) plat[i][j] = ' ';
         for (Obstacle o : obstacleList) 
         {
             plat[o.getPos().getX()][o.getPos().getY()] = 'o';
@@ -185,14 +191,28 @@ public class PlateauJeu {
             plat[r.getPos().getX()][r.getPos().getY()] = 'r';
         }
         String value;
-        for(int i = 0 ; i < this.hauteur ; i ++)
+        for(int i = 0 ; i < this.getHauteur() ; i ++)
         {
-            for(int  j = 0 ; j < this.largeur ; j ++)
+            for(int  j = 0 ; j < this.getLargeur() ; j ++)
             {
                 System.out.print(plat[i][j]);
             }
             System.out.println();
         }
+    }
+
+    /**
+     * @return the largeur
+     */
+    public int getLargeur() {
+        return largeur;
+    }
+
+    /**
+     * @return the hauteur
+     */
+    public int getHauteur() {
+        return hauteur;
     }
     
 }
