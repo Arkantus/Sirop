@@ -10,6 +10,8 @@ package sirop;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -151,15 +153,27 @@ public class PlateauJeu {
         } 
     }
     
-    public void displayPlateau()
+    public void displayPlateau(JLabel[] labels, ImageIcon[] icons)
     {
+        int x;
+        int y;
+        
+        for (int i =  0; i < 625; i++)
+        {
+            labels[i] = new JLabel(icons[8]);
+        }
+        
         for (Obstacle o : obstacleList) 
         {
-            System.out.println(o.toString());
+            x = o.getPos().getX();
+            y = o.getPos().getY();
+            labels[25*y+(x)] = new JLabel(icons[5]);
         }
         for (Robot r : robotList) 
         {
-            System.out.println(r.toString());
+            x = r.getPos().getX();
+            y = r.getPos().getY();
+            labels[25*y+(x)] = new JLabel(icons[0]);
         }
     }
     
