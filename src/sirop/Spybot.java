@@ -5,6 +5,8 @@
  */
 package sirop;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author marc
@@ -26,6 +28,11 @@ public class Spybot extends Obstacle implements Movable{
     public void applyEffect(Robot r)
     {
        r.reparer(-1);
+    }
+    
+    @Override
+    public ImageIcon getImage() {
+        return new ImageIcon("res/spybot.png");
     }
 
     

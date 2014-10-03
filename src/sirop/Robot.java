@@ -10,7 +10,7 @@ package sirop;
  *
  * @author marc
  */
-public class Robot implements Movable {
+public abstract class Robot implements Movable,IhazImage {
 private String nomRobot;
 private Point2D pos;
 private int energy;

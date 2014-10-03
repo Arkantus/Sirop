@@ -31,16 +31,6 @@ public class SIROP {
        
         Container pane = new JPanel(new GridLayout(25,25,0,0));
         
-        HashMap<Class,ImageIcon> iconMap = new HashMap<>();
-        iconMap.put(RobotNeuneu.class, new ImageIcon("res/robotneuneu.png"));
-        iconMap.put(RobotCombattant.class, new ImageIcon("res/robotcombattant.png"));
-        iconMap.put(RobotEnergivore.class, new ImageIcon("res/robotenergivore.png"));
-        iconMap.put(BorneEnergie.class, new ImageIcon("res/borneenergie.png"));
-        iconMap.put(BorneSante.class, new ImageIcon("res/bornesante.png"));
-        iconMap.put(ObstacleFixe.class, new ImageIcon("res/obstaclefixe.png"));
-        iconMap.put(ObstacleMobile.class, new ImageIcon("res/obstaclemobile.png"));
-        iconMap.put(Spybot.class, new ImageIcon("res/spybot.png"));
-        iconMap.put(Object.class, new ImageIcon("res/bg.png"));
         JLabel labels[] = new JLabel[625];
 
 
@@ -75,7 +65,7 @@ public class SIROP {
             plateau.randomMoveRobots();
             plateau.applyBonuses();
             pane.removeAll();
-            plateau.displayPlateau(labels, iconMap);
+            plateau.displayPlateau(labels);
             for (int i =  0; i < 625; i++)
             {
                 pane.add(labels[i]);

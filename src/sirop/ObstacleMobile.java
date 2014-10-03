@@ -6,6 +6,8 @@
 
 package sirop;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author marc
@@ -28,4 +30,9 @@ public class ObstacleMobile extends Obstacle implements Movable{
     {
      
     } 
+    
+    @Override
+    public ImageIcon getImage() {
+        return new ImageIcon("res/obstaclemobile.png");
+    }
 }

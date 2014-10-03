@@ -6,6 +6,8 @@
 
 package sirop;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author marc
@@ -21,4 +23,8 @@ public RobotNeuneu()
         super();
     }
 
+    @Override
+    public ImageIcon getImage() {
+        return new ImageIcon("res/robotneuneu.png");
+    }
 }

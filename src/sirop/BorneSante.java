@@ -6,6 +6,8 @@
 
 package sirop;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author marc
@@ -42,4 +44,8 @@ public class BorneSante extends Bonus {
         this.santeBorne -= santeRendue - r.reparer(santeRendue);
     }
     
+    @Override
+    public ImageIcon getImage() {
+        return new ImageIcon("res/bornesante.png");
+    }
 }

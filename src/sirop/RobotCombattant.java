@@ -6,6 +6,8 @@
 
 package sirop;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author marc
@@ -21,4 +23,10 @@ public RobotCombattant()
     {
         super();
     }
+
+    @Override
+    public ImageIcon getImage() {
+        return new ImageIcon("res/robotcombattant.png");
+    }
+
 }

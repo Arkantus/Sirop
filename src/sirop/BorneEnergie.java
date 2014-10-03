@@ -6,6 +6,8 @@
 
 package sirop;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author marc
@@ -42,4 +44,8 @@ public class BorneEnergie extends Bonus {
         this.rendreEnergie(1,r);
     }
     
+    @Override
+    public ImageIcon getImage() {
+        return new ImageIcon("res/bornenergie.png");
+    }
 }

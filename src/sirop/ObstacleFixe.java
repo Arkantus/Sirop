@@ -6,6 +6,8 @@
 
 package sirop;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author marc
@@ -23,7 +25,13 @@ public class ObstacleFixe extends Obstacle {
     {
      
     } 
+
+    @Override
+    public ImageIcon getImage() {
+        return new ImageIcon("res/obstaclefixe.png");
+    }
     
+     
 }
 
 

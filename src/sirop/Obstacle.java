@@ -13,7 +13,7 @@ package sirop;
 
 //TODO add apply effect for obstakles
 
-public abstract class Obstacle implements ObjectLocalised{
+public abstract class Obstacle implements ObjectLocalised,IhazImage{
     protected Point2D pos;
 
     public Obstacle(int x, int y)

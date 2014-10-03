@@ -6,6 +6,8 @@
 
 package sirop;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author marc
@@ -20,5 +22,10 @@ public RobotEnergivore(int x, int y)
 public RobotEnergivore()
     {
         super();
+    }
+
+    @Override
+    public ImageIcon getImage() {
+        return new ImageIcon("res/robotenergivore.png");
     }
 }
