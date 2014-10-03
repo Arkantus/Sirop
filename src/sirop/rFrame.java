@@ -5,7 +5,6 @@
  */
 package sirop;
 
-import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import javax.swing.*;
 
@@ -58,6 +57,9 @@ public class rFrame extends JFrame{
         this.labels = labels;
     }
 
-
+    public void addJPanel(JPanel j)
+    {
+        pane.add(j);
+    }
 }
 
