@@ -5,7 +5,6 @@
  */
 
 package sirop;
-import java.awt.Color;
 import java.util.Scanner;
 
 import javax.swing.*;
@@ -49,18 +48,12 @@ public class SIROP {
         
         while(keepPlaying)
         {
-            plateau.displayToString();
+            //plateau.displayToString();
             Thread.sleep(500);
             plateau.randomMoveRobots();
             plateau.applyBonuses();
-            rPane.removeAll();
             plateau.displayPlateau(cases);
-            for (int i =  0; i < 100; i++)
-            {
-                rPane.add(cases[i]);
-            }
-            rF.repaint();
-            rF.setVisible(true);
+            rF.refreshGraphics();
             //System.out.println("Keep playing (0/1) ?");
             //keepPlaying = s.nextInt()==1;
         }

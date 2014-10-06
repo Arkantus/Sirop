@@ -173,21 +173,21 @@ public class PlateauJeu {
         {
             x = o.getPos().getX();
             y = o.getPos().getY();
-            cases[10*y+(x)].removeAll();
-            cases[10*y+(x)].add(new JLabel(o.getImage()),BorderLayout.CENTER);
+            cases[hauteur*y+(x)].removeAll();
+            cases[hauteur*y+(x)].add(new JLabel(o.getImage()),BorderLayout.CENTER);
             JButton btn_top = new JButton(""+o.getNiveau()+"");
             btn_top.setPreferredSize(new Dimension(64,10));
-            cases[10*y+(x)].add(btn_top,BorderLayout.PAGE_START);
+            cases[hauteur*y+(x)].add(btn_top,BorderLayout.PAGE_START);
         }
         for (Robot r : robotList) 
         {
             x = r.getPos().getX();
             y = r.getPos().getY();
-            cases[10*y+(x)].removeAll();
-            cases[10*y+(x)].add(new JLabel(r.getImage()),BorderLayout.CENTER);
+            cases[hauteur*y+(x)].removeAll();
+            cases[hauteur*y+(x)].add(new JLabel(r.getImage()),BorderLayout.CENTER);
             JButton btn_top = new JButton(""+r.getEnergy()+"");
             btn_top.setPreferredSize(new Dimension(64,10));
-            cases[10*y+(x)].add(btn_top,BorderLayout.PAGE_START);
+            cases[hauteur*y+(x)].add(btn_top,BorderLayout.PAGE_START);
         }
     }
     
