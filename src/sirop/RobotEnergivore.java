@@ -28,4 +28,9 @@ public RobotEnergivore()
     public ImageIcon getImage() {
         return new ImageIcon("res/robotenergivore.png");
     }
+    
+    public RobotEnergivore(String Name, int x, int y, int nrj, int life)
+    {
+        super(Name,x,y,nrj,life);
+    }
 }

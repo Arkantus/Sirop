@@ -38,6 +38,14 @@ private static int robotCount = 0;
         this.health = Robot.ROBOT_START_SANTE;
     }
     
+    public Robot(String Name, int x, int y, int nrj, int life)
+    {
+        this.nomRobot = Name;
+        pos = new Point2D(x,y);
+        this.energy = nrj;
+        this.health = life;
+    }
+    
     /**
      * @return the nomRobot
      */

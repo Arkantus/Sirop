@@ -22,6 +22,10 @@ public RobotNeuneu()
     {
         super();
     }
+    public RobotNeuneu(String Name, int x, int y, int nrj, int life)
+    {
+        super(Name,x,y,nrj,life);
+    }
 
     @Override
     public ImageIcon getImage() {
