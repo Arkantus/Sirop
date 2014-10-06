@@ -29,6 +29,7 @@ public abstract class Obstacle implements ObjectLocalised,IhazImage{
         return pos;
     }
 
+    public abstract int getNiveau();
     public abstract void applyEffect(Robot r);
     
     @Override

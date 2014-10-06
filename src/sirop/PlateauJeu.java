@@ -7,11 +7,15 @@
 
 
 package sirop;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -153,14 +157,15 @@ public class PlateauJeu {
         } 
     }
     
-    public void displayPlateau(JLabel[] labels)
+    public void displayPlateau(JPanel[] cases)
     {
         int x;
         int y;
         
-        for (int i=0;i<625; i++) 
+        for (int i=0;i<cases.length; i++) 
         {
-            labels[i] = new JLabel(new ImageIcon("res/bg.png"));
+            cases[i].removeAll();
+            cases[i].add(new JLabel(new ImageIcon("res/bg.png")),BorderLayout.CENTER);
         }
         
         
@@ -168,13 +173,21 @@ public class PlateauJeu {
         {
             x = o.getPos().getX();
             y = o.getPos().getY();
-            labels[25*y+(x)] = new JLabel(o.getImage());
+            cases[10*y+(x)].removeAll();
+            cases[10*y+(x)].add(new JLabel(o.getImage()),BorderLayout.CENTER);
+            JButton btn_top = new JButton(""+o.getNiveau()+"");
+            btn_top.setPreferredSize(new Dimension(64,10));
+            cases[10*y+(x)].add(btn_top,BorderLayout.PAGE_START);
         }
         for (Robot r : robotList) 
         {
             x = r.getPos().getX();
             y = r.getPos().getY();
-            labels[25*y+(x)] = new JLabel(r.getImage());
+            cases[10*y+(x)].removeAll();
+            cases[10*y+(x)].add(new JLabel(r.getImage()),BorderLayout.CENTER);
+            JButton btn_top = new JButton(""+r.getEnergy()+"");
+            btn_top.setPreferredSize(new Dimension(64,10));
+            cases[10*y+(x)].add(btn_top,BorderLayout.PAGE_START);
         }
     }
     

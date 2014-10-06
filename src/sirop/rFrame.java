@@ -5,6 +5,8 @@
  */
 package sirop;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import javax.swing.*;
 
@@ -15,17 +17,22 @@ import javax.swing.*;
 public class rFrame extends JFrame{
 
     private JPanel pane;
-    private JLabel[] labels;
+    private JPanel[] cases;
     
     public rFrame(int longr, int largr) {
         
        super();
-       this.setDefaultCloseOperation(super.EXIT_ON_CLOSE);
+       this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        pane = new JPanel(new GridLayout(longr,largr,0,0));
-       labels = new JLabel[longr*largr];
+       cases = new JPanel[longr*largr];
+       for(int i=0;i<longr*largr;i++)
+       {
+           cases[i] = new JPanel(new BorderLayout());
+           cases[i].setBackground(new Color(226,79,70));
+       }
        this.add(pane);
        this.pack();
-       this.setBounds(10, 10, longr*32, largr*32);
+       this.setBounds(10, 10, longr*64, largr*74);
        
     }
 
@@ -44,17 +51,17 @@ public class rFrame extends JFrame{
     }
 
     /**
-     * @return the labels
+     * @return the cases
      */
-    public JLabel[] getLabels() {
-        return labels;
+    public JPanel[] getCases() {
+        return cases;
     }
 
     /**
-     * @param labels the labels to set
+     * @param cases the cases to set
      */
-    public void setLabels(JLabel[] labels) {
-        this.labels = labels;
+    public void setCases(JPanel[] cases) {
+        this.cases = cases;
     }
 
     public void addJPanel(JPanel j)

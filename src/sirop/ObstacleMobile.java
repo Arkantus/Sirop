@@ -31,6 +31,11 @@ public class ObstacleMobile extends Obstacle implements Movable{
      
     } 
     
+    public int getNiveau()
+    {
+        return 6666666;
+    }
+    
     @Override
     public ImageIcon getImage() {
         return new ImageIcon("res/obstaclemobile.png");

@@ -17,4 +17,7 @@ public abstract class Bonus extends Obstacle {
         super(x,y);
     }
     
+    public abstract void setNiveau(int e);
+    public abstract void rendreNiveau(int niveauRendu, Robot r);
+    
 }
