@@ -7,7 +7,10 @@
 
 
 package sirop;
+import java.io.*;
+import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
 import javax.swing.ImageIcon;
@@ -213,6 +216,104 @@ public class PlateauJeu {
      */
     public int getHauteur() {
         return hauteur;
+    }
+    
+   // void saveState()
+            
+    void RestoreState(String s)
+    {
+        BufferedReader file = null;
+        try
+        {
+            file = new BufferedReader(new FileReader(s));
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("FileNotFoundException : "+e.getMessage()+"\nStack\n"+Arrays.toString(e.getStackTrace()));
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage()+"\nStack\n"+Arrays.toString(e.getStackTrace()));
+        }
+        finally
+        {
+            Boolean test;
+            do
+            {
+                test = false;
+                System.out.println("Enter a different file(path), or quit(q)");
+                Scanner i = new Scanner(System.in);
+                String t = i.nextLine();
+                if(t.length() == 1 && t.toLowerCase().equals("q"))
+                    System.exit(-1);
+                else if(t.length() > 0)
+                    RestoreState(t);
+                else 
+                    test = true;
+            }
+            while(test);
+            
+        }
+        
+        try
+        {
+            if(null == file)
+            {
+            } 
+            else 
+            {
+                String line = file.readLine();
+                String[] tokens = line.split(" ");
+                int cnp = 0;
+                do
+                {
+                    
+                    if(tokens[0].toLowerCase().equals("largeur"))
+                    {
+                        this.largeur = Integer.parseInt(tokens[1]);
+                    }
+                    if(tokens[0].toLowerCase().equals("hauteur"))
+                    {
+                        this.hauteur = Integer.parseInt(tokens[1]);
+                    }
+                    if(tokens[0].toLowerCase().equals("robotcombattant"))
+                    {
+                        this.robotList.add(new RobotCombattant(tokens[1],Integer.parseInt(tokens[2]), Integer.parseInt(tokens[3]) ,Integer.parseInt(tokens[4]) ,Integer.parseInt(tokens[5])));
+                    }
+                    if(tokens[0].toLowerCase().equals("robotneuneu"))
+                    {
+                        this.robotList.add(new RobotNeuneu(tokens[1],Integer.parseInt(tokens[2]), Integer.parseInt(tokens[3]) ,Integer.parseInt(tokens[4]) ,Integer.parseInt(tokens[5])));
+                    }
+                    if(tokens[0].toLowerCase().equals("robotenergivore"))
+                    {
+                        this.robotList.add(new RobotEnergivore(tokens[1],Integer.parseInt(tokens[2]), Integer.parseInt(tokens[3]) ,Integer.parseInt(tokens[4]) ,Integer.parseInt(tokens[5])));
+                    }
+                    if(tokens[0].toLowerCase().equals("obstaclemobile"))
+                    {
+                        this.obstacleList.add();
+                    }
+                    if(tokens[0].toLowerCase().equals("obstaclefixe"))
+                    {
+                        this.obstacleList.add();
+                    }
+                    if(tokens[0].toLowerCase().equals("borneenergie"))
+                    {
+                        this.obstacleList.add();
+                    }
+                    if(tokens[0].toLowerCase().equals(""))
+                    {
+                        this.obstacleList.add();
+                    }
+                    
+                }
+                while(file.ready());
+                
+            }
+        }
+        catch(Exception e)
+        {
+            
+        }
     }
     
 }
