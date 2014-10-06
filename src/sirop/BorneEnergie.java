@@ -23,25 +23,27 @@ public class BorneEnergie extends Bonus {
         this.energieBorne = ENERGIEINITIALEBORNE;
     }
     
-    public int getEnergie()
+    public int getNiveau()
     {
         return this.energieBorne;
     }
     
-    public void setEnergie(int e)
+    public void setNiveau(int e)
     {
         this.energieBorne = e;
     }
     
-    public void rendreEnergie(int energieRendue, Robot r)
+    public void rendreNiveau(int energieRendue, Robot r)
     {
-            this.energieBorne -= energieRendue - r.recharger(energieRendue);
+        if(this.getNiveau()>0)
+        {this.energieBorne -= energieRendue - r.recharger(energieRendue);}
+        else{};
     }
     
     @Override
     public void applyEffect(Robot r)
     {
-        this.rendreEnergie(1,r);
+        this.rendreNiveau(1,r);
     }
     
     @Override

@@ -23,12 +23,12 @@ public class BorneSante extends Bonus {
         this.santeBorne = SANTEINITIALEBORNE;
     }
     
-    public int getSante()
+    public int getNiveau()
     {
         return this.santeBorne;
     }
     
-    public void setEnergie(int s)
+    public void setNiveau(int s)
     {
         this.santeBorne = s;
     }
@@ -36,12 +36,14 @@ public class BorneSante extends Bonus {
     @Override
     public void applyEffect(Robot r)
     {
-        this.rendreSante(1,r);
+        this.rendreNiveau(1,r);
     }
     
-    public void rendreSante(int santeRendue, Robot r)
+    public void rendreNiveau (int santeRendue, Robot r)
     {
-        this.santeBorne -= santeRendue - r.reparer(santeRendue);
+        if(this.getNiveau()>0)
+        {this.santeBorne -= santeRendue - r.reparer(santeRendue);}
+        else{};
     }
     
     @Override

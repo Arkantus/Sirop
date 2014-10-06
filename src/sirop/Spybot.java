@@ -30,6 +30,11 @@ public class Spybot extends Obstacle implements Movable{
        r.reparer(-1);
     }
     
+    public int getNiveau()
+    {
+        return 007;
+    }
+    
     @Override
     public ImageIcon getImage() {
         return new ImageIcon("res/spybot.png");

@@ -19,6 +19,10 @@ public class ObstacleFixe extends Obstacle {
         super(x,y);
     }
 
+    public int getNiveau()
+    {
+        return 6666666;
+    }
     
     @Override
      public void applyEffect(Robot r)
