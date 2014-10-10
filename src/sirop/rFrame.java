@@ -28,7 +28,8 @@ public class rFrame extends JFrame{
        for(int i=0;i<longr*largr;i++)
        {
            cases[i] = new JPanel(new BorderLayout());
-           cases[i].setBackground(new Color(226,79,70));
+
+           cases[i].setBackground(new Color(255,79,70));
        }
        this.add(pane);
        this.pack();
@@ -36,13 +37,23 @@ public class rFrame extends JFrame{
        
     }
 
+    public void refreshGraphics() {
+        
+        pane.removeAll();
+        for (int i =  0; i < 100; i++)
+        {
+            pane.add(cases[i]);
+        }
+        this.repaint();
+        this.setVisible(true);
+    }
+    
     /**
      * @return the pane
      */
     public JPanel getPane() {
         return pane;
     }
-
     /**
      * @param pane the pane to set
      */

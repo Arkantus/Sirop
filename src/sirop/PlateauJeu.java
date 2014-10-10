@@ -9,6 +9,7 @@
 package sirop;
 import java.io.*;
 import java.util.Scanner;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.util.ArrayList;
@@ -176,21 +177,21 @@ public class PlateauJeu {
         {
             x = o.getPos().getX();
             y = o.getPos().getY();
-            cases[10*y+(x)].removeAll();
-            cases[10*y+(x)].add(new JLabel(o.getImage()),BorderLayout.CENTER);
+            cases[hauteur*y+(x)].removeAll();
+            cases[hauteur*y+(x)].add(new JLabel(o.getImage()),BorderLayout.CENTER);
             JButton btn_top = new JButton(""+o.getNiveau()+"");
             btn_top.setPreferredSize(new Dimension(64,10));
-            cases[10*y+(x)].add(btn_top,BorderLayout.PAGE_START);
+            cases[hauteur*y+(x)].add(btn_top,BorderLayout.PAGE_START);
         }
         for (Robot r : robotList) 
         {
             x = r.getPos().getX();
             y = r.getPos().getY();
-            cases[10*y+(x)].removeAll();
-            cases[10*y+(x)].add(new JLabel(r.getImage()),BorderLayout.CENTER);
+            cases[hauteur*y+(x)].removeAll();
+            cases[hauteur*y+(x)].add(new JLabel(r.getImage()),BorderLayout.CENTER);
             JButton btn_top = new JButton(""+r.getEnergy()+"");
             btn_top.setPreferredSize(new Dimension(64,10));
-            cases[10*y+(x)].add(btn_top,BorderLayout.PAGE_START);
+            cases[hauteur*y+(x)].add(btn_top,BorderLayout.PAGE_START);
         }
     }
     
@@ -301,7 +302,7 @@ public class PlateauJeu {
                     {
                         this.robotList.add(new RobotEnergivore(tokens[1],Integer.parseInt(tokens[2]), Integer.parseInt(tokens[3]) ,Integer.parseInt(tokens[4]) ,Integer.parseInt(tokens[5])));
                     }
-                    if(tokens[0].toLowerCase().equals("obstaclemobile"))
+                  /*  if(tokens[0].toLowerCase().equals("obstaclemobile"))
                     {
                         this.obstacleList.add();
                     }
@@ -316,7 +317,7 @@ public class PlateauJeu {
                     if(tokens[0].toLowerCase().equals(""))
                     {
                         this.obstacleList.add();
-                    }
+                    }*/
                     
                 }
                 while(file.ready());
