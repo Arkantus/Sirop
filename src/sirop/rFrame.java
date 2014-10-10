@@ -28,7 +28,6 @@ public class rFrame extends JFrame{
        for(int i=0;i<longr*largr;i++)
        {
            cases[i] = new JPanel(new BorderLayout());
-
            cases[i].setBackground(new Color(255,79,70));
        }
        this.add(pane);
