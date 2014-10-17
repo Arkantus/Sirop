@@ -14,7 +14,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
 import javax.swing.ImageIcon;
@@ -169,7 +168,7 @@ public class PlateauJeu {
         for (int i=0;i<cases.length; i++) 
         {
             cases[i].removeAll();
-            cases[i].add(new JLabel(new ImageIcon("res/bg.png")),BorderLayout.CENTER);
+            cases[i].add(new JLabel(new ImageIcon("res/old/bg.png")),BorderLayout.CENTER);
         }
         
         
@@ -325,6 +324,22 @@ public class PlateauJeu {
         {
             
         }
+    }
+    
+    public String toString()
+    {
+        String output = "";
+        for (Obstacle o : obstacleList) 
+        {
+            output+=o.toString();
+            output+="\n";
+        }
+        for (Robot r : robotList) 
+        {
+            output+=r.toString();
+            output+="\n";
+        }
+        return output;
     }
     
 }

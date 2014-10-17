@@ -18,6 +18,8 @@ public class rFrame extends JFrame{
 
     private JPanel pane;
     private JPanel[] cases;
+    private int lgr;
+    private int lrgr;
     
     public rFrame(int longr, int largr) {
         
@@ -33,13 +35,14 @@ public class rFrame extends JFrame{
        this.add(pane);
        this.pack();
        this.setBounds(10, 10, longr*64, largr*74);
-       
+       lgr = longr;
+       lrgr = largr;
     }
 
     public void refreshGraphics() {
         
         pane.removeAll();
-        for (int i =  0; i < 100; i++)
+        for (int i =  0; i < lgr*lrgr; i++)
         {
             pane.add(cases[i]);
         }
