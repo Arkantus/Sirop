@@ -31,7 +31,7 @@ public class BorneSante extends Bonus {
     
     public String save()
     {
-        return (this.getClass().toString().substring(12) + " " +this.pos.getX() + "" + this.pos.getY()+" " + this.santeBorne  +"\n");
+        return (this.getClass().toString().substring(12)+" " + this.santeBorne  + " " +this.pos.getX() + " " + this.pos.getY()+"\n");
     }
 
     

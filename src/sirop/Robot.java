@@ -125,7 +125,7 @@ private static int robotCount = 0;
         
     public String save()
     {
-        return (this.getClass().toString().substring(12) + " " + this.nomRobot +" " +this.pos.getX() + "" + this.pos.getY()+" " + this.energy+ " " + this.health  +"\n");
+        return (this.getClass().toString().substring(12) + " " + this.nomRobot +" " +this.pos.getX() + " " + this.pos.getY()+" " + this.energy+ " " + this.health  +"\n");
     }
 
     public int recharger(int energyRefill)

@@ -266,19 +266,10 @@ public class PlateauJeu {
                 else 
                     test = true;
             }
-                        //System.out.print("HHHHHHAAA");
-
-            
-            
-        }
-        
+        }     
         try
         {
-            if(null == file)
-            {
-                            //System.out.print("HHHHHHAAA");
-
-            } 
+            if(null == file) {} 
             else 
             {
                 String line; //= file.readLine();
@@ -351,8 +342,9 @@ public class PlateauJeu {
     
     void saveState(String s)
     {
-        //BufferedReader file = null;
         BufferedWriter file = null;
+        Boolean test = false;
+
         try
         {
             file = new BufferedWriter(new FileWriter(s));
@@ -360,11 +352,12 @@ public class PlateauJeu {
         catch(Exception e)
         {
             System.out.println(e.getMessage()+"\nStack : \n"+Arrays.toString(e.getStackTrace()));
+            test = true;
         }
         finally
         {
-            Boolean test;
-            do
+            //Boolean test;
+            while(test)
             {
                 test = false;
                 System.out.println("Enter a different file(path), or quit(q)");
@@ -377,7 +370,7 @@ public class PlateauJeu {
                 else 
                     test = true;
             }
-            while(test);
+            //while(test);
             
         }
         
@@ -388,17 +381,19 @@ public class PlateauJeu {
             } 
             else 
             {
-                file.append("largeur " + this.largeur );
-                file.append("hauteur " + this.hauteur );
+                file.write("largeur " + this.largeur +"\n");
+                file.write("hauteur " + this.hauteur +"\n");
                 for(Robot r : this.robotList)
-                    file.append(r.save());
+                    file.write(r.save());
                 for(Obstacle c : this.obstacleList)
-                    file.append("");
+                    file.write(c.save());
+                file.flush();
+                file.close();
             }
         }
         catch(Exception e)
         {
-            
+            System.out.println("ksjdoheor\n");
         }
     }
     
