@@ -44,18 +44,18 @@ public class rFrame extends JFrame{
     private final int lrgr;
     private JMenuBar jMenuBar;
     private JMenu           jMenuFile;
-    private JMenuItem       jFileNew;
     private JMenuItem       jFileOpen;
     private JMenuItem       jFileSave;
     private JMenuItem       jFileReset;
-    private JMenuItem       jFileExit;
-    private JMenu           jMenuAbout;
-    private JMenuItem       jAboutInfo;
+    private JMenuItem       initMenu;
+
     private boolean isPaused;
+    private PlateauJeu plat;
     
-    public rFrame(int longr, int largr) {
+    public rFrame(int longr, int largr, PlateauJeu p) {
         
        super();
+       plat = p;
        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        pane = new JPanel(new GridLayout(longr,largr,0,0));
        cases = new JPanel[longr*largr];
@@ -85,38 +85,43 @@ public class rFrame extends JFrame{
         // Menu
         jMenuFile = new JMenu("File");
         // Menu new
-        jFileNew = new JMenuItem("New");
-        // Menu open 
-        jFileOpen = new JMenuItem("Open");
+
+        jFileOpen = new JMenuItem("Open"){
+            public String toString() {return "o";}
+        };
         // Menu save 
-        jFileSave = new JMenuItem("Save");
+        jFileSave = new JMenuItem("Save"){
+                        public String toString() {return "s";}
+        };
         // Menu reset 
-        jFileReset = new JMenuItem("Reset");
-        // Menu exit
-        jFileExit = new JMenuItem("Exit");        
-              
-        // Menu a propos
-        jMenuAbout = new JMenu("About");
-        jAboutInfo = new JMenuItem("Info");
+        jFileReset = new JMenuItem("Reset"){
+                        public String toString() {return "t";}
+        };
+        initMenu = new JMenuItem("Init Menu");
         
-        // Adding menu items to the menu
-        jMenuFile.add(jFileNew);
+        jMenuFile.add(initMenu);
         jMenuFile.add(jFileOpen);
         jMenuFile.add(jFileSave);
         jMenuFile.add(jFileReset);
-        jMenuFile.add(jFileExit);
-              
-        jMenuAbout.add(jAboutInfo);
-        
+                
         jMenuBar.add(jMenuFile);
-        jMenuBar.add(jMenuAbout);
       
+        jFileOpen.addActionListener(new reactionMenu(this));
+        jFileOpen.addActionListener(new reactionMenu(this));
+        jFileSave.addActionListener(new reactionMenu(this));
+        jFileReset.addActionListener(new reactionMenu(this));
+        
+        
         // Ajout du menu a la JFrame
         setJMenuBar(jMenuBar);
     }
 
     public boolean getIsPaused() {
         return isPaused;
+    }
+    
+    public PlateauJeu getPlat() {
+        return plat;
     }
     
     public void refreshGraphics() {

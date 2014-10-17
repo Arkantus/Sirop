@@ -289,13 +289,13 @@ public class PlateauJeu {
                     if(tokens[0].toLowerCase().equals("largeur"))
                     {
                         this.largeur = Integer.parseInt(tokens[1]);
-                        System.out.print("largeur");
+                        System.out.print("largeur:"+largeur);
 
                     }
                     if(tokens[0].toLowerCase().equals("hauteur"))
                     {
                         this.hauteur = Integer.parseInt(tokens[1]);
-                        System.out.print("hauteur");
+                        System.out.print("hauteur:"+hauteur);
                     }
                     if(tokens[0].toLowerCase().equals("robotcombattant"))
                     {

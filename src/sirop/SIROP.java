@@ -44,23 +44,15 @@ public class SIROP {
         
         //init plateau jeu
         PlateauJeu plateau = new PlateauJeu(10,10);
-        plateau.addRobot(r_n);
-        plateau.addRobot(r_c_1);
-        plateau.addRobot(r_c_2);
-        plateau.addRobot(r_c_3);
-        plateau.addObstacle(b_e);
-        plateau.addObstacle(o_f);
-        
-        //plateau.addRobot(r_n);
-        //plateau.addRobot(r_c);
-        //plateau.addObstacle(b_e);
-        plateau.resetAll();
-        plateau.RestoreState("/home/marc/Downloads/save");
+
         
         // GUI
-        rFrame rF = new rFrame(plateau.getHauteur(), plateau.getLargeur());        
+        rFrame rF = new rFrame(plateau.getHauteur(), plateau.getLargeur(),plateau);        
         JPanel rPane = rF.getPane();
         JPanel[] cases = rF.getCases();
+        
+        //gestion du menu
+        reactionMenu rM = new reactionMenu(rF);
         
         while(keepPlaying)
         {
