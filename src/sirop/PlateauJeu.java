@@ -243,10 +243,12 @@ public class PlateauJeu {
         }
         catch(FileNotFoundException e)
         {
+            test = true;
             System.out.println("FileNotFoundException : "+e.getMessage()+"\nStack : \n"+Arrays.toString(e.getStackTrace()));
         }
         catch(Exception e)
         {
+            test = true;
             System.out.println(e.getMessage()+"\nStack\n"+Arrays.toString(e.getStackTrace()));
         }
         finally
