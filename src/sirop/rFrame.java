@@ -121,7 +121,7 @@ public class rFrame extends JFrame{
         jFileOpen.addActionListener(new reactionMenu(this));
         jFileSave.addActionListener(new reactionMenu(this));
         jFileReset.addActionListener(new reactionMenu(this));
-        jFileReset.addActionListener(new reactionMenu(this));
+        jFileNew.addActionListener(new reactionMenu(this));
         
         
         // Ajout du menu a la JFrame
