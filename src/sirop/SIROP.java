@@ -51,6 +51,11 @@ public class SIROP {
         plateau.addObstacle(b_e);
         plateau.addObstacle(o_f);
         
+        //plateau.addRobot(r_n);
+        //plateau.addRobot(r_c);
+        //plateau.addObstacle(b_e);
+        plateau.resetAll();
+        plateau.RestoreState("/home/marc/Downloads/save");
         
         // GUI
         rFrame rF = new rFrame(plateau.getHauteur(), plateau.getLargeur());        

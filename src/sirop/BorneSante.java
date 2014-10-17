@@ -29,6 +29,12 @@ public class BorneSante extends Bonus {
         this.santeBorne = sante;
     }
     
+    public String save()
+    {
+        return (this.getClass().toString().substring(12) + " " +this.pos.getX() + "" + this.pos.getY()+" " + this.santeBorne  +"\n");
+    }
+
+    
     public int getNiveau()
     {
         return this.santeBorne;

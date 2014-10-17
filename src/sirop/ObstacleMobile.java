@@ -19,6 +19,11 @@ public class ObstacleMobile extends Obstacle implements Movable{
         super(x,y);
     }
     
+    public String save()
+    {
+        return (this.getClass().toString().substring(12) + " " +this.pos.getX() + "" + this.pos.getY()+ "\n");
+    }
+    
     @Override
     public void setPos(Point2D p)
     {
