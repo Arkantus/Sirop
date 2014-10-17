@@ -48,6 +48,6 @@ public class BorneEnergie extends Bonus {
     
     @Override
     public ImageIcon getImage() {
-        return new ImageIcon("res/borneenergie.png");
+        return new ImageIcon(new ImageIcon("res/img/energy.png").getImage().getScaledInstance(32, 32, java.awt.Image.SCALE_FAST));
     }
 }

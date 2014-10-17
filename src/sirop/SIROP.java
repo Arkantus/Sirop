@@ -5,7 +5,6 @@
  */
 
 package sirop;
-import java.awt.Color;
 import java.util.Scanner;
 
 import javax.swing.*;
@@ -35,12 +34,16 @@ public class SIROP {
         
         //init obstacles
         BorneEnergie b_e = new BorneEnergie(1,1);
+        ObstacleFixe o_f = new ObstacleFixe(6,7);
+        
         
         //init plateau jeu
         PlateauJeu plateau = new PlateauJeu(10, 10);
         plateau.addRobot(r_n);
         plateau.addRobot(r_c);
         plateau.addObstacle(b_e);
+        plateau.addObstacle(o_f);
+        
         
         // GUI
         rFrame rF = new rFrame(plateau.getHauteur(), plateau.getLargeur());        

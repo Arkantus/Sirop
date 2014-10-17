@@ -21,7 +21,7 @@ public class ObstacleFixe extends Obstacle {
 
     public int getNiveau()
     {
-        return 6666666;
+        return 00;
     }
     
     @Override
@@ -32,7 +32,7 @@ public class ObstacleFixe extends Obstacle {
 
     @Override
     public ImageIcon getImage() {
-        return new ImageIcon("res/obstaclefixe.png");
+        return new ImageIcon(new ImageIcon("res/img/obstacle.png").getImage().getScaledInstance(32, 32, java.awt.Image.SCALE_FAST));
     }
     
      

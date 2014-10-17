@@ -37,7 +37,7 @@ public class Spybot extends Obstacle implements Movable{
     
     @Override
     public ImageIcon getImage() {
-        return new ImageIcon("res/spybot.png");
+        return new ImageIcon("res/old/spybot.png");
     }
 
     
