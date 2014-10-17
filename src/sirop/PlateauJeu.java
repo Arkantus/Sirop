@@ -16,7 +16,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
 import javax.swing.ImageIcon;
@@ -74,11 +73,10 @@ public class PlateauJeu {
         Random ranGenerator = new Random();
        for (Robot r : robotList) 
         {
-            HashMap caseslibresautourdurobotr = casesLibresAround(r.getPos());
+            ArrayList<Integer> caseslibresautourdurobotr = casesLibresAround(r.getPos());
             int rand;
-            do {rand = ranGenerator.nextInt(7);}
-            while(!caseslibresautourdurobotr.containsValue(rand));
-            moveMovable(rand, r);
+            rand = ranGenerator.nextInt(caseslibresautourdurobotr.size());
+            moveMovable(caseslibresautourdurobotr.get(rand), r);
         } 
         
     }
@@ -108,9 +106,9 @@ public class PlateauJeu {
         return true;   
     }
     
-    public HashMap casesLibresAround(Point2D p)
+    public ArrayList casesLibresAround(Point2D p)
     {
-        HashMap<Point2D,Integer> pointMap = new HashMap<>();
+        ArrayList<Integer> pointList = new ArrayList<>();
         Point2D currentAdjPoint;
         
         for(int k=0; k<=7; k++)
@@ -118,12 +116,12 @@ public class PlateauJeu {
             currentAdjPoint = new Point2D(p, k);
             if(!horsPlateau(currentAdjPoint) && caseLibre(currentAdjPoint))
             {
-                pointMap.put(currentAdjPoint, k);
+                pointList.add(k);
             }
             
         }
         
-        return pointMap;
+        return pointList;
     }
     
     public ArrayList obstaclesAutour(Point2D p)
@@ -170,7 +168,7 @@ public class PlateauJeu {
         for (int i=0;i<cases.length; i++) 
         {
             cases[i].removeAll();
-            cases[i].add(new JLabel(new ImageIcon("res/bg.png")),BorderLayout.CENTER);
+            cases[i].add(new JLabel(new ImageIcon("res/old/bg.png")),BorderLayout.CENTER);
         }
         
         
@@ -394,6 +392,22 @@ public class PlateauJeu {
         {
             
         }
+    }
+    
+    public String toString()
+    {
+        String output = "";
+        for (Obstacle o : obstacleList) 
+        {
+            output+=o.toString();
+            output+="\n";
+        }
+        for (Robot r : robotList) 
+        {
+            output+=r.toString();
+            output+="\n";
+        }
+        return output;
     }
     
 }

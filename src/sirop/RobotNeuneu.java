@@ -29,6 +29,6 @@ public RobotNeuneu()
 
     @Override
     public ImageIcon getImage() {
-        return new ImageIcon("res/robotneuneu.png");
+        return new ImageIcon(new ImageIcon("res/img/robot13.png").getImage().getScaledInstance(32, 32, java.awt.Image.SCALE_FAST));
     }
 }

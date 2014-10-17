@@ -5,7 +5,6 @@
  */
 
 package sirop;
-import java.awt.Color;
 import java.util.Scanner;
 
 import javax.swing.*;
@@ -30,13 +29,28 @@ public class SIROP {
         //init robots
         RobotNeuneu r_n = new RobotNeuneu();
         r_n.setNomRobot("r_n-1");
-        RobotCombattant r_c = new RobotCombattant(9,9);
-        r_c.setNomRobot("r_c-1");
+        RobotCombattant r_c_1 = new RobotCombattant(6,7);
+        r_c_1.setNomRobot("r_c-1");
+        RobotCombattant r_c_2 = new RobotCombattant(6,7);
+        r_c_2.setNomRobot("r_c-2");
+        RobotCombattant r_c_3 = new RobotCombattant(6,7);
+        r_c_3.setNomRobot("r_c-3");
+        
         
         //init obstacles
         BorneEnergie b_e = new BorneEnergie(1,1);
+        ObstacleFixe o_f = new ObstacleFixe(6,6);
+        
         
         //init plateau jeu
+        PlateauJeu plateau = new PlateauJeu(10,10);
+        plateau.addRobot(r_n);
+        plateau.addRobot(r_c_1);
+        plateau.addRobot(r_c_2);
+        plateau.addRobot(r_c_3);
+        plateau.addObstacle(b_e);
+        plateau.addObstacle(o_f);
+        
         PlateauJeu plateau = new PlateauJeu(10, 10);
         //plateau.addRobot(r_n);
         //plateau.addRobot(r_c);
@@ -51,7 +65,7 @@ public class SIROP {
         while(keepPlaying)
         {
 
-            //plateau.displayToString();
+            System.out.println(plateau.toString());
             Thread.sleep(500);
             plateau.randomMoveRobots();
             plateau.applyBonuses();

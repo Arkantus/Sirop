@@ -26,7 +26,7 @@ public RobotEnergivore()
 
     @Override
     public ImageIcon getImage() {
-        return new ImageIcon("res/robotenergivore.png");
+        return new ImageIcon(new ImageIcon("res/img/robot.png").getImage().getScaledInstance(32, 32, java.awt.Image.SCALE_FAST));
     }
     
     public RobotEnergivore(String Name, int x, int y, int nrj, int life)

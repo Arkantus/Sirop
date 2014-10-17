@@ -54,6 +54,6 @@ public class BorneSante extends Bonus {
     
     @Override
     public ImageIcon getImage() {
-        return new ImageIcon("res/bornesante.png");
+        return new ImageIcon(new ImageIcon("res/img/powerup.png").getImage().getScaledInstance(32, 32, java.awt.Image.SCALE_FAST));
     }
 }
