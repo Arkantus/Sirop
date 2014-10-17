@@ -59,8 +59,8 @@ public class SIROP {
         
         while(keepPlaying)
         {
-
-            System.out.println(plateau.toString());
+            if (!rF.getIsPaused()){
+            //System.out.println(plateau.toString());
             Thread.sleep(500);
             plateau.randomMoveRobots();
             plateau.applyBonuses();
@@ -68,8 +68,9 @@ public class SIROP {
             rF.refreshGraphics();
             //System.out.println("Keep playing (0/1) ?");
             //keepPlaying = s.nextInt()==1;
+            }
+            else{rF.refreshGraphics();}
         }
-        
     }
     
 }

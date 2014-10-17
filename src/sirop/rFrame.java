@@ -8,6 +8,9 @@ package sirop;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.KeyEventDispatcher;
+import java.awt.KeyboardFocusManager;
+import java.awt.event.KeyEvent;
 import javax.swing.*;
 
 /**
@@ -15,11 +18,40 @@ import javax.swing.*;
  * @author IAZERTYUIOPI
  */
 public class rFrame extends JFrame{
-
+    
+    private class MyDispatcher implements KeyEventDispatcher {
+        @Override
+        public boolean dispatchKeyEvent(KeyEvent e) {
+            if (e.getID() == KeyEvent.KEY_PRESSED) {
+                if(e.getKeyChar()=='p'){
+                    isPaused=true;
+                }
+                if(e.getKeyChar()=='g'){
+                    isPaused=false;
+                }
+                
+            } else if (e.getID() == KeyEvent.KEY_RELEASED) {
+                
+            } else if (e.getID() == KeyEvent.KEY_TYPED) {
+                
+            }
+            return false;
+        }
+    }
     private JPanel pane;
     private JPanel[] cases;
-    private int lgr;
-    private int lrgr;
+    private final int lgr;
+    private final int lrgr;
+    private JMenuBar jMenuBar;
+    private JMenu           jMenuFile;
+    private JMenuItem       jFileNew;
+    private JMenuItem       jFileOpen;
+    private JMenuItem       jFileSave;
+    private JMenuItem       jFileReset;
+    private JMenuItem       jFileExit;
+    private JMenu           jMenuAbout;
+    private JMenuItem       jAboutInfo;
+    private boolean isPaused;
     
     public rFrame(int longr, int largr) {
         
@@ -37,8 +69,56 @@ public class rFrame extends JFrame{
        this.setBounds(10, 10, longr*64, largr*74);
        lgr = longr;
        lrgr = largr;
+       
+
+       jMenuBar = new javax.swing.JMenuBar();
+        jMenuBar.setMinimumSize(new java.awt.Dimension(320, 22));
+        jMenuBar.setSize(new java.awt.Dimension(320, 20));
+             
+        isPaused = false;
+        
+
+        KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
+        manager.addKeyEventDispatcher(new MyDispatcher());
+        
+        
+        // Menu
+        jMenuFile = new JMenu("File");
+        // Menu new
+        jFileNew = new JMenuItem("New");
+        // Menu open 
+        jFileOpen = new JMenuItem("Open");
+        // Menu save 
+        jFileSave = new JMenuItem("Save");
+        // Menu reset 
+        jFileReset = new JMenuItem("Reset");
+        // Menu exit
+        jFileExit = new JMenuItem("Exit");        
+              
+        // Menu a propos
+        jMenuAbout = new JMenu("About");
+        jAboutInfo = new JMenuItem("Info");
+        
+        // Adding menu items to the menu
+        jMenuFile.add(jFileNew);
+        jMenuFile.add(jFileOpen);
+        jMenuFile.add(jFileSave);
+        jMenuFile.add(jFileReset);
+        jMenuFile.add(jFileExit);
+              
+        jMenuAbout.add(jAboutInfo);
+        
+        jMenuBar.add(jMenuFile);
+        jMenuBar.add(jMenuAbout);
+      
+        // Ajout du menu a la JFrame
+        setJMenuBar(jMenuBar);
     }
 
+    public boolean getIsPaused() {
+        return isPaused;
+    }
+    
     public void refreshGraphics() {
         
         pane.removeAll();
