@@ -31,7 +31,7 @@ public class BorneEnergie extends Bonus {
     
     public String save()
     {
-        return (this.getClass().toString().substring(12) + " " +this.pos.getX() + "" + this.pos.getY()+" " + this.energieBorne  +"\n");
+        return (this.getClass().toString().substring(12)+" " + this.energieBorne + " " +this.pos.getX() + " " + this.pos.getY()  +"\n");
     }
     
     public int getNiveau()

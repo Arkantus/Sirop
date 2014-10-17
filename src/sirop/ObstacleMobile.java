@@ -21,7 +21,7 @@ public class ObstacleMobile extends Obstacle implements Movable{
     
     public String save()
     {
-        return (this.getClass().toString().substring(12) + " " +this.pos.getX() + "" + this.pos.getY()+ "\n");
+        return (this.getClass().toString().substring(12) + " " +this.pos.getX() + " " + this.pos.getY()+ "\n");
     }
     
     @Override
