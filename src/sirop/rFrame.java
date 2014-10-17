@@ -56,6 +56,7 @@ public class rFrame extends JFrame{
     private JMenuItem       jFileSave;
     private JMenuItem       jFileReset;
     private JMenuItem       initMenu;
+    private JMenuItem       jFileNew;
 
     private boolean isPaused;
     private PlateauJeu plat;
@@ -94,6 +95,10 @@ public class rFrame extends JFrame{
         jMenuFile = new JMenu("File");
         // Menu new
 
+        jFileNew = new JMenuItem("New"){
+            public String toString() {return "n";}
+        };
+         
         jFileOpen = new JMenuItem("Load"){
             public String toString() {return "o";}
         };
@@ -109,11 +114,13 @@ public class rFrame extends JFrame{
         jMenuFile.add(jFileOpen);
         jMenuFile.add(jFileSave);
         jMenuFile.add(jFileReset);
+        jMenuFile.add(jFileNew);
                 
         jMenuBar.add(jMenuFile);
       
         jFileOpen.addActionListener(new reactionMenu(this));
         jFileSave.addActionListener(new reactionMenu(this));
+        jFileReset.addActionListener(new reactionMenu(this));
         jFileReset.addActionListener(new reactionMenu(this));
         
         

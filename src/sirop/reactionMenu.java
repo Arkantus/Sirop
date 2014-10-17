@@ -39,6 +39,12 @@ private final PlateauJeu plateau;
                plateau.resetAll();
 
             }
+            if(ae.getSource().toString().equals("n")){
+
+               plateau.resetAll();
+               plateau.RestoreState("res/new.txt");
+
+            }
         }
     }
     
