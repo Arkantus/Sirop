@@ -82,7 +82,6 @@ private static int robotCount = 0;
             }  
         else
             {
-                System.out.println("Move failure : ooe");
             }
     }
    

@@ -19,21 +19,27 @@ private final PlateauJeu plateau;
     
     @Override
     public void actionPerformed(ActionEvent ae) {
-      if(ae.getSource().toString().equals("o")){
-          
-          plateau.RestoreState("res/save.txt");
-          
-      }
-      if(ae.getSource().toString().equals("s")){
-          
-          plateau.saveState("res/save.txt");
-          
-      }
-      if(ae.getSource().toString().equals("t")){
-          
-         plateau.resetAll();
-          
-      }
+      
+        if(!gui.getIsPaused()){
+            System.out.println("Please Pause the simulation before attempting to use this menu.");
+        }
+        else{
+            if(ae.getSource().toString().equals("o")){
+
+                plateau.RestoreState("res/save.txt");
+
+            }
+            if(ae.getSource().toString().equals("s")){
+
+                plateau.saveState("res/save.txt");
+
+            }
+            if(ae.getSource().toString().equals("t")){
+
+               plateau.resetAll();
+
+            }
+        }
     }
     
     public reactionMenu(rFrame rF)

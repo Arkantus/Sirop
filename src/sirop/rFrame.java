@@ -24,9 +24,17 @@ public class rFrame extends JFrame{
         public boolean dispatchKeyEvent(KeyEvent e) {
             if (e.getID() == KeyEvent.KEY_PRESSED) {
                 if(e.getKeyChar()=='p'){
+                    for(int i=0;i<lgr*lrgr;i++)
+                        {
+                            cases[i].setBackground(new Color(255,0,0));
+                        }
                     isPaused=true;
                 }
                 if(e.getKeyChar()=='g'){
+                    for(int i=0;i<lgr*lrgr;i++)
+                        {
+                            cases[i].setBackground(new Color(255,200,255));
+                        }
                     isPaused=false;
                 }
                 
@@ -86,7 +94,7 @@ public class rFrame extends JFrame{
         jMenuFile = new JMenu("File");
         // Menu new
 
-        jFileOpen = new JMenuItem("Open"){
+        jFileOpen = new JMenuItem("Load"){
             public String toString() {return "o";}
         };
         // Menu save 
@@ -97,16 +105,13 @@ public class rFrame extends JFrame{
         jFileReset = new JMenuItem("Reset"){
                         public String toString() {return "t";}
         };
-        initMenu = new JMenuItem("Init Menu");
         
-        jMenuFile.add(initMenu);
         jMenuFile.add(jFileOpen);
         jMenuFile.add(jFileSave);
         jMenuFile.add(jFileReset);
                 
         jMenuBar.add(jMenuFile);
       
-        jFileOpen.addActionListener(new reactionMenu(this));
         jFileOpen.addActionListener(new reactionMenu(this));
         jFileSave.addActionListener(new reactionMenu(this));
         jFileReset.addActionListener(new reactionMenu(this));
