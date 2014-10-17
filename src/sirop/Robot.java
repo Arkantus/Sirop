@@ -121,6 +121,12 @@ private static int robotCount = 0;
     {
         return ("Nom : "+ this.nomRobot + " \n\tJe suis de type : " + this.getClass().toString().substring(12) + "\n\tEnergie : " + this.energy+ "\n\tSanté : " + this.health + "\n\tPosition : " + this.pos.toString());
     }
+    
+        
+    public String save()
+    {
+        return (this.getClass().toString().substring(12) + " " + this.nomRobot +" " +this.pos.getX() + "" + this.pos.getY()+" " + this.energy+ " " + this.health  +"\n");
+    }
 
     public int recharger(int energyRefill)
     {

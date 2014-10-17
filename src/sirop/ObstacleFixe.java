@@ -18,6 +18,11 @@ public class ObstacleFixe extends Obstacle {
     {
         super(x,y);
     }
+    
+    public String save()
+    {
+        return (this.getClass().toString().substring(12) + " " +this.pos.getX() + "" + this.pos.getY()+ "\n");
+    }
 
     public int getNiveau()
     {

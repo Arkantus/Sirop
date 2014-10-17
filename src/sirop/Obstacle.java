@@ -37,4 +37,7 @@ public abstract class Obstacle implements ObjectLocalised,IhazImage{
     {
         return ("\tJe suis de type : " + this.getClass().toString().substring(12) + "\n\tPosition : " + this.pos.toString());
     }
+    
+        public abstract String save();
+
 }

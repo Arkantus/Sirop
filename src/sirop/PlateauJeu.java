@@ -282,7 +282,7 @@ public class PlateauJeu {
                 String line; //= file.readLine();
                 while((line = file.readLine()) != null)
                 {
-                                    String[] tokens = line.split(" ");
+                    String[] tokens = line.split(" ");
 
                     if(tokens[0].toLowerCase().equals("largeur"))
                     {
@@ -341,6 +341,12 @@ public class PlateauJeu {
         }
     }
     
+    void resetAll()
+    {
+        this.robotList.clear();;
+        this.obstacleList.clear();
+    }
+    
     void saveState(String s)
     {
         //BufferedReader file = null;
@@ -383,7 +389,7 @@ public class PlateauJeu {
                 file.append("largeur " + this.largeur );
                 file.append("hauteur " + this.hauteur );
                 for(Robot r : this.robotList)
-                    file.append("");
+                    file.append(r.save());
                 for(Obstacle c : this.obstacleList)
                     file.append("");
             }
