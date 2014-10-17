@@ -56,7 +56,6 @@ public class SIROP {
         
         while(keepPlaying)
         {
-            plateau.saveState(cnp + "_Save_");
             if (!rF.getIsPaused()){
             //System.out.println(plateau.toString());
             Thread.sleep(500);
