@@ -38,9 +38,10 @@ public class SIROP {
         
         //init plateau jeu
         PlateauJeu plateau = new PlateauJeu(10, 10);
-        plateau.addRobot(r_n);
-        plateau.addRobot(r_c);
-        plateau.addObstacle(b_e);
+        //plateau.addRobot(r_n);
+        //plateau.addRobot(r_c);
+        //plateau.addObstacle(b_e);
+        plateau.RestoreState("/home/marc/Downloads/save");
         
         // GUI
         rFrame rF = new rFrame(plateau.getHauteur(), plateau.getLargeur());        
