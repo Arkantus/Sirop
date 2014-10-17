@@ -23,6 +23,12 @@ public class BorneEnergie extends Bonus {
         this.energieBorne = ENERGIEINITIALEBORNE;
     }
     
+    public BorneEnergie(int nrj, int x, int y)
+    {
+        super(x,y);
+        this.energieBorne = nrj;
+    }
+    
     public int getNiveau()
     {
         return this.energieBorne;
