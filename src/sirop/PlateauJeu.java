@@ -74,8 +74,10 @@ public class PlateauJeu {
        for (Robot r : robotList) 
         {
             ArrayList<Integer> caseslibresautourdurobotr = casesLibresAround(r.getPos());
+            //System.out.println(caseslibresautourdurobotr.toString());
             int rand;
             rand = ranGenerator.nextInt(caseslibresautourdurobotr.size());
+            System.out.println(caseslibresautourdurobotr.size());
             moveMovable(caseslibresautourdurobotr.get(rand), r);
         } 
         
@@ -114,6 +116,8 @@ public class PlateauJeu {
         for(int k=0; k<=7; k++)
         {
             currentAdjPoint = new Point2D(p, k);
+            //System.out.print(currentAdjPoint.toString());
+            //System.out.print(caseLibre(currentAdjPoint));
             if(!horsPlateau(currentAdjPoint) && caseLibre(currentAdjPoint))
             {
                 pointList.add(k);

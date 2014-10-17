@@ -59,6 +59,7 @@ public class SIROP {
             if (!rF.getIsPaused()){
             //System.out.println(plateau.toString());
             Thread.sleep(500);
+            System.out.println("---------------------------------------------");
             plateau.randomMoveRobots();
             plateau.applyBonuses();
             plateau.displayPlateau(cases);

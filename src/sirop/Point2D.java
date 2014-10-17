@@ -59,8 +59,8 @@ public class Point2D {
                 break;
         }
         
-        this.x = p.x + deltax;
-        this.y = p.y + deltay;
+        this.x = p.getX() + deltax;
+        this.y = p.getY() + deltay;
     }
     
     public Point2D(Point2D p)
@@ -99,7 +99,7 @@ public class Point2D {
     
     public boolean isEqual(Point2D p)
     {
-        return (x == p.getX()) && (x == p.getY());
+        return (x == p.getX()) && (y == p.getY());
     }
     
     public void translate(int dx, int dy)
