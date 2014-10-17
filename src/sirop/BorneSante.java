@@ -23,6 +23,12 @@ public class BorneSante extends Bonus {
         this.santeBorne = SANTEINITIALEBORNE;
     }
     
+    public BorneSante( int sante ,int x, int y)
+    {
+        super(x,y);
+        this.santeBorne = sante;
+    }
+    
     public int getNiveau()
     {
         return this.santeBorne;

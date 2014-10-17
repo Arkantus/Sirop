@@ -281,7 +281,6 @@ public class PlateauJeu {
                 int cnp = 0;
                 do
                 {
-                    
                     if(tokens[0].toLowerCase().equals("largeur"))
                     {
                         this.largeur = Integer.parseInt(tokens[1]);
@@ -302,26 +301,24 @@ public class PlateauJeu {
                     {
                         this.robotList.add(new RobotEnergivore(tokens[1],Integer.parseInt(tokens[2]), Integer.parseInt(tokens[3]) ,Integer.parseInt(tokens[4]) ,Integer.parseInt(tokens[5])));
                     }
-                  /*  if(tokens[0].toLowerCase().equals("obstaclemobile"))
+                    if(tokens[0].toLowerCase().equals("obstaclemobile"))
                     {
-                        this.obstacleList.add();
+                        this.obstacleList.add(new ObstacleMobile(Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2])));
                     }
                     if(tokens[0].toLowerCase().equals("obstaclefixe"))
                     {
-                        this.obstacleList.add();
+                        this.obstacleList.add(new ObstacleFixe(Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2])));
                     }
                     if(tokens[0].toLowerCase().equals("borneenergie"))
                     {
-                        this.obstacleList.add();
+                        this.obstacleList.add(new BorneEnergie(Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]),Integer.parseInt(tokens[3])));
                     }
-                    if(tokens[0].toLowerCase().equals(""))
+                    if(tokens[0].toLowerCase().equals("bornesante"))
                     {
-                        this.obstacleList.add();
-                    }*/
-                    
+                        this.obstacleList.add(new BorneSante(Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]),Integer.parseInt(tokens[3])));
+                    }
                 }
                 while(file.ready());
-                
             }
         }
         catch(Exception e)
